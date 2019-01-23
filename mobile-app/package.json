@@ -1,5 +1,5 @@
 {
-  "name": "mobileapp",
+  "name": "luxyshops",
   "version": "5.1.0",
   "private": true,
   "devDependencies": {
@@ -12,7 +12,7 @@
   },
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios --simulator=\"iPhone X\"",
+    "ios": "react-native run-ios --simulator=\"iPhone 6s\"",
     "apk": "cd android && ./gradlew assembleRelease",
     "rename": "node ./bin/rename.js",
     "start": "react-native start",

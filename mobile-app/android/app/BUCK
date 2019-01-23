@@ -45,12 +45,12 @@ android_library(
 
 android_build_config(
     name = "build_config",
-    package = "com.insighty.mobileapp",
+    package = "com.insighty.luxyshops",
 )
 
 android_resource(
     name = "res",
-    package = "com.insighty.mobileapp",
+    package = "com.insighty.luxyshops",
     res = "src/main/res",
 )
 

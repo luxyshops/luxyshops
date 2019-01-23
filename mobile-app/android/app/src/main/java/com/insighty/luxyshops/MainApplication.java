@@ -1,4 +1,4 @@
-package com.insighty.mobileapp;
+package com.insighty.luxyshops;
 
 import android.annotation.SuppressLint;
 import android.app.Application;
