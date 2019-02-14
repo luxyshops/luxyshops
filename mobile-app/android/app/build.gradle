@@ -154,6 +154,10 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-splash-screen')
+    implementation project(':react-native-vector-icons')
+    implementation project(':react-native-firebase')
+    implementation project(':react-native-camera')
   //noinspection GradleDynamicVersion
   implementation "com.facebook.react:react-native:+"
   implementation fileTree(dir: "libs", include: ["*.jar"])
@@ -177,6 +181,14 @@ dependencies {
     // exclude `customtabs` as the support lib version is out of date
     // we manually add it as a dependency below with a custom version
     exclude group: 'com.android.support', module: 'customtabs'
+  }
+
+  compile (project(':react-native-camera')) {
+    exclude group: "com.google.android.gms"
+    compile 'com.android.support:exifinterface:25.+'
+    compile ('com.google.android.gms:play-services-vision:12.0.1') {
+      force = true
+    }
   }
 
   // Authentication

@@ -13,6 +13,7 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios --simulator=\"iPhone 6s\"",
+    "reset-ios": "watchman watch-del-all && rm -fr $TMPDIR/react-* && rm -rf ios/build/ModuleCache/* && rm -rf ios/build && rm -rf ~/.rncache",
     "apk": "cd android && ./gradlew assembleRelease",
     "rename": "node ./bin/rename.js",
     "start": "react-native start",
@@ -22,8 +23,22 @@
     "preset": "react-native"
   },
   "dependencies": {
+    "lodash": "^4.17.11",
+    "lodash.uniqueid": "^4.0.1",
+    "prop-types": "^15.6.2",
     "react": "16.6.3",
     "react-native": "0.58.0-rc.2",
-    "react-native-firebase": "^5.2.0"
+    "react-native-camera": "^1.9.1",
+    "react-native-collapsible": "^1.4.0",
+    "react-native-elevated-view": "^0.0.6",
+    "react-native-firebase": "^5.2.0",
+    "react-native-navigation": "^2.8.0",
+    "react-native-open-maps": "^0.3.3",
+    "react-native-responsive-dimensions": "^2.0.1",
+    "react-native-snap-carousel": "^3.7.5",
+    "react-native-splash-screen": "^3.2.0",
+    "react-native-svg": "^9.2.2",
+    "react-native-vector-icons": "^6.2.0",
+    "styled-components": "^4.1.3"
   }
 }

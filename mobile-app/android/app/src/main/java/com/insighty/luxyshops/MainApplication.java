@@ -4,10 +4,15 @@ import android.annotation.SuppressLint;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import org.devio.rn.splashscreen.SplashScreenReactPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
+import io.invertase.firebase.RNFirebasePackage;
+import org.reactnative.camera.RNCameraPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
+import org.reactnative.camera.RNCameraPackage;
 
 import io.invertase.firebase.RNFirebasePackage;
 // optional packages - add/remove as appropriate
@@ -43,7 +48,12 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.asList(
         new MainReactPackage(),
+            new SplashScreenReactPackage(),
+            new VectorIconsPackage(),
+            new RNFirebasePackage(),
+            new RNCameraPackage(),
         new RNFirebasePackage(),
+        new RNCameraPackage(),
         // add/remove these packages as appropriate
         new RNFirebaseAdMobPackage(),
         new RNFirebaseAnalyticsPackage(),

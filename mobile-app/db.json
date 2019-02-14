@@ -1,0 +1,35 @@
+{
+  "productFamilies" : {
+    "0EwCS0k5YaY0U7D9mQ5AmGI1b983" : [ {
+      "bar_codes" : [ "12186973001499" ],
+      "name" : "T-shirt",
+      "price" : "$24.99",
+      "stores_in_stock" : [
+        {
+          "address" : "900 Dufferin St W Toronto, ON M6H 4A9",
+          "colors_available" : [ "white", "#D7D8DA", "#36465A", "#BB8969" ],
+          "name" : "Marshalls - Dufferin Mall",
+          "placeId" : "ChIJD9aQMls0K4gR7np7iQxTntg",
+          "sizes_available" : [ "S", "M" ],
+          "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
+        },
+        {
+          "address" : "585 Queen St W, Toronto ON M5V 2B7",
+          "colors_available" : [ "#D7D8DA", "#FF6C57", "#36465A" ],
+          "name" : "Winners - Queen St W",
+          "placeId" : "ChIJD9aQMls0K4gR7np7iQxTntg",
+          "sizes_available" : [ "XS", "M", "XXL" ],
+          "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
+        },
+        {
+          "address" : "585 Queen St W, Toronto ON M5V 2B7",
+          "colors_available" : [ "#D7D8DA", "#FF6C57", "#36465A", "green", "black" ],
+          "name" : "Winners - Queen St W",
+          "placeId" : "ChIJD9aQMls0K4gR7np7iQxTntg",
+          "sizes_available" : [ "XS", "M", "L", "XL", "XXL" ],
+          "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
+        } ],
+      "style" : "4234325234t32r"
+    } ]
+  }
+}

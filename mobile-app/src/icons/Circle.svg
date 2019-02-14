@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="179px" height="252px" viewBox="0 0 179 252" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <filter x="-6.2%" y="-16.4%" width="112.4%" height="132.9%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.615686275   0 0 0 0 0.639215686   0 0 0 0 0.705882353  0 0 0 0.16 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <path d="M16.6980343,9.9005994 C17.3538585,9.23043507 17.7272727,8.30905994 17.7272727,7.3430105 C17.7272727,6.37698818 17.3538811,5.4556574 16.6973525,4.78472459 C16.0589203,4.13176687 15.2057028,3.77035351 14.3223223,3.77035351 C13.4389001,3.77035351 12.585645,4.1318009 11.9468347,4.78519234 L9.99976642,6.77576905 L8.05255323,4.78504415 C6.72982623,3.43276003 4.62459495,3.43276004 3.30186798,4.78504418 C1.92968039,6.18789416 1.92968037,8.49812688 3.30186792,9.90097686 L9.99976644,16.7485441 L16.6980343,9.9005994 Z M9.13913082,2.74211473 L9.99976645,3.55396004 L10.8564858,2.74580904 C11.8441516,1.96724992 13.0616084,1.53846154 14.3223223,1.53846154 C15.8281066,1.53846154 17.2721817,2.15015724 18.3367165,3.2389122 C19.4016743,4.32723467 20,5.80357853 20,7.3430105 C20,8.88251231 19.40162,10.3589203 18.3367164,11.4471088 L11.2347194,18.7078044 C10.5526737,19.4050908 9.44685917,19.4050908 8.76481348,18.7078044 L1.66281643,11.4471088 C-0.554272167,9.18047787 -0.554272141,5.50554314 1.66281649,3.23891226 C3.70396325,1.1521548 6.91267477,0.986555614 9.13913082,2.74211473 Z" id="path-2"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Colour+Size-Variations-Cards" transform="translate(-235.000000, 0.000000)">
+            <g id="Card-Wishlist-Copy" transform="translate(22.000000, 95.000000)">
+                <g id="1-copy" filter="url(#filter-1)">
+                    <g id="Icons/Heart-Outline" transform="translate(330.000000, 20.000000)">
+                        <mask id="mask-3" fill="white">
+                            <use xlink:href="#path-2"></use>
+                        </mask>
+                        <g id="Shape" fill-rule="nonzero"></g>
+                        <g id="Colors/Bright-pink-Copy" mask="url(#mask-3)" fill-rule="evenodd">
+                            <rect id="Color" fill="#FF3B30" x="0" y="0" width="20" height="20"></rect>
+                            <rect id="Color-Copy" fill="#7CC797" x="0" y="0" width="20" height="20"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

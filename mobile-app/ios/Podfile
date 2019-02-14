@@ -6,16 +6,33 @@ target 'luxyshops' do
   # use_frameworks!
 
   # Pods for luxyshops
+  # Your 'node_modules' directory is probably in the root of your project,
+    # but if not, adjust the `:path` accordingly
+    pod 'React', :path => '../node_modules/react-native', :subspecs => [
+      'Core',
+      'CxxBridge', # Include this for RN >= 0.47
+      'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
+      'RCTText',
+      'RCTNetwork',
+      'RCTWebSocket', # needed for debugging
+      # Add any other subspecs you want to use in your project
+    ]
+    # Explicitly include Yoga if you are using RN >= 0.42.0
+    pod "yoga", :path => "../node_modules/react-native/ReactCommon/yoga"
+
+    # Third party deps podspec link
+    pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
+    pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
+    pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
   # Required by RNFirebase
   pod 'Firebase/Core', '~> 5.15.0'
+  pod 'react-native-camera', path: '../node_modules/react-native-camera'
 
   # [OPTIONAL PODS] - comment out pods for firebase products you won't be using.
-  pod 'Firebase/AdMob', '~> 5.15.0'
   pod 'Firebase/Auth', '~> 5.15.0'
   pod 'Firebase/Core', '~> 5.15.0'
   pod 'Firebase/Database', '~> 5.15.0'
-  pod 'Firebase/Functions', '~> 5.15.0'
   pod 'Firebase/DynamicLinks', '~> 5.15.0'
   pod 'Firebase/Firestore', '~> 5.15.0'
   # pod 'Firebase/Invites', '~> 5.15.0'
@@ -26,4 +43,16 @@ target 'luxyshops' do
   pod 'Fabric', '~> 1.7.13'
   pod 'Crashlytics', '~> 3.10.9'
 
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
+  pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
+
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    if target.name == "React"
+      target.remove_from_project
+    end
+  end
 end
