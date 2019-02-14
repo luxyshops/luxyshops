@@ -2,59 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d3b51b1-ed18-4bed-857c-6ce180365e4c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/mobile-app/assets/heart.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/assets/tshirt.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/db.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/ios/Launch Screen.storyboard" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/ios/luxyshops/Images.xcassets/AppIcon.appiconset/bg-1024.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/ios/luxyshops/Images.xcassets/AppIcon.appiconset/bg-20@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/ios/luxyshops/Images.xcassets/AppIcon.appiconset/bg-20@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/ios/luxyshops/Images.xcassets/AppIcon.appiconset/bg-29.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/ios/luxyshops/Images.xcassets/AppIcon.appiconset/bg-29@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/ios/luxyshops/Images.xcassets/AppIcon.appiconset/bg-29@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/ios/luxyshops/Images.xcassets/AppIcon.appiconset/bg-40@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/ios/luxyshops/Images.xcassets/AppIcon.appiconset/bg-40@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/ios/luxyshops/Images.xcassets/AppIcon.appiconset/bg-60@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/ios/luxyshops/Images.xcassets/AppIcon.appiconset/bg-60@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/ios/luxyshops/Images.xcassets/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/ios/luxyshops/Images.xcassets/Splash.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/ios/luxyshops/Images.xcassets/Splash.imageset/LuxySplash@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/components/Button.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/components/Text.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/icons/Circle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/icons/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/navigation/methods.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/navigation/screens.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/screens/Initializing/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/screens/Results/components/AvailableColors.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/screens/Results/components/StoreCollapsible.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/screens/Results/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/screens/Scanner/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/screens/SignIn/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/screens/SignUp/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/screens/Walkthrough/Carousel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/screens/Walkthrough/SliderEntry.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/screens/Walkthrough/data.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/screens/Walkthrough/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/screens/Results/customMapStyle.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-app/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-app/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-app/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-app/android/app/src/main/java/com/insighty/luxyshops/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/android/app/src/main/java/com/insighty/luxyshops/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-app/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-app/android/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/android/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-app/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mobile-app/ios/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/Podfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Podfile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/Podfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mobile-app/ios/luxyshops.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/luxyshops.xcodeproj/project.pbxproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mobile-app/ios/luxyshops/AppDelegate.m" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/luxyshops/AppDelegate.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-app/ios/luxyshops/Base.lproj/LaunchScreen.xib" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/luxyshops/Base.lproj/LaunchScreen.xib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-app/ios/luxyshops/Images.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/luxyshops/Images.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-app/ios/luxyshops/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/luxyshops/Info.plist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mobile-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/src/screens/Results/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/src/screens/Results/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/src/screens/Scanner/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/src/screens/Scanner/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -71,7 +27,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Initializing/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="82">
+            <state relative-caret-position="441">
               <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
@@ -80,14 +36,56 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mobile-app/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="168">
+              <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
               <folding>
                 <element signature="e#12#63#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Scanner/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="506">
+              <caret line="54" column="37" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="37" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Results/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="181" column="37" lean-forward="true" selection-start-line="181" selection-start-column="37" selection-end-line="181" selection-end-column="37" />
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Results/customMapStyle.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mobile-app/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -144,12 +142,9 @@
         <option value="$PROJECT_DIR$/mobile-app/src/components/Results/AvailableColors.js" />
         <option value="$PROJECT_DIR$/mobile-app/db.json" />
         <option value="$PROJECT_DIR$/mobile-app/package.json" />
-        <option value="$PROJECT_DIR$/mobile-app/ios/Podfile" />
         <option value="$PROJECT_DIR$/mobile-app/src/components/Results/StoreCollapsible.js" />
         <option value="$PROJECT_DIR$/mobile-app/src/config.js" />
-        <option value="$PROJECT_DIR$/mobile-app/src/screens/Results/index.js" />
         <option value="$PROJECT_DIR$/mobile-app/index.js" />
-        <option value="$PROJECT_DIR$/mobile-app/src/screens/Scanner/index.js" />
         <option value="$PROJECT_DIR$/mobile-app/src/screens/SignIn/index.js" />
         <option value="$PROJECT_DIR$/mobile-app/src/screens/SignUp/index.js" />
         <option value="$PROJECT_DIR$/mobile-app/src/screens/Walkthrough/carousel.js" />
@@ -163,6 +158,10 @@
         <option value="$PROJECT_DIR$/mobile-app/src/components/Button.js" />
         <option value="$PROJECT_DIR$/mobile-app/src/screens/Walkthrough/Carousel.js" />
         <option value="$PROJECT_DIR$/mobile-app/src/screens/Initializing/index.js" />
+        <option value="$PROJECT_DIR$/mobile-app/ios/Podfile" />
+        <option value="$PROJECT_DIR$/mobile-app/src/screens/Scanner/index.js" />
+        <option value="$PROJECT_DIR$/mobile-app/src/screens/Results/customMapStyle.json" />
+        <option value="$PROJECT_DIR$/mobile-app/src/screens/Results/index.js" />
       </list>
     </option>
   </component>
@@ -184,7 +183,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -203,10 +201,34 @@
               <item name="mobile-app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="luxyshops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="luxyshops" type="462c0819:PsiDirectoryNode" />
+              <item name="mobile-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="screens" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="luxyshops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="luxyshops" type="462c0819:PsiDirectoryNode" />
+              <item name="mobile-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="screens" type="462c0819:PsiDirectoryNode" />
+              <item name="Results" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="luxyshops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="luxyshops" type="462c0819:PsiDirectoryNode" />
+              <item name="mobile-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="screens" type="462c0819:PsiDirectoryNode" />
+              <item name="Scanner" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -279,14 +301,17 @@
       <workItem from="1549978663963" duration="860000" />
       <workItem from="1550055560661" duration="121000" />
       <workItem from="1550125997968" duration="979000" />
+      <workItem from="1550153760887" duration="504000" />
+      <workItem from="1550156480507" duration="3878000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69495000" />
+    <option name="totallyTimeSpent" value="73877000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18675123" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -302,7 +327,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.96314496" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.96314496" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -373,13 +398,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mobile-app/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Results/components/AvailableColors.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -406,25 +424,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile-app/App.js" />
-    <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Results/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2079">
-          <caret line="110" selection-start-line="110" selection-end-line="110" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mobile-app/bg.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile-app/ios/Podfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/SignUp/index.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -465,16 +466,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
           <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Scanner/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -527,7 +518,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Initializing/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
+        <state relative-caret-position="441">
           <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
@@ -535,12 +526,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/ios/Podfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="68" column="3" selection-start-line="68" selection-start-column="3" selection-end-line="68" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mobile-app/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="168">
+          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
           <folding>
             <element signature="e#12#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Scanner/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="54" column="37" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Results/customMapStyle.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Results/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="181" column="37" lean-forward="true" selection-start-line="181" selection-start-column="37" selection-end-line="181" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>

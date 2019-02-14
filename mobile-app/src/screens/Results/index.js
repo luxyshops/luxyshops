@@ -9,15 +9,55 @@ import {
 } from 'react-native'
 import StoreCollapsible from './components/StoreCollapsible'
 import Icon from 'react-native-vector-icons/FontAwesome';
+import {responsiveFontSize, responsiveHeight, responsiveWidth} from 'react-native-responsive-dimensions';
 import ElevatedView from 'react-native-elevated-view';
+import customMapStyle from './customMapStyle';
+import {Navigation} from 'react-native-navigation';
+import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 
-export default class Screen2 extends React.Component {
+const listNavOptions = {
+  topBar: {
+    rightButtons: [
+      {
+        id: 'listButton',
+        text: 'List'
+      }
+    ],
+    drawBehind: false,
+    transparent: false,
+    translucent: false,
+    hideOnScroll: false,
+  }
+}
+
+const mapNavOptions = {
+  topBar: {
+    rightButtons: [
+      {
+        id: 'mapButton',
+        text: 'Map'
+      }
+    ],
+    drawBehind: true,
+    transparent: true,
+    translucent: true,
+    hideOnScroll: true,
+  }
+}
+
+export default class Results extends React.Component {
   static get options() {
     return {
       topBar: {
         backButton: { // android
           color: "rgba(60, 109, 240, 0.87)",
         },
+        rightButtons: [
+          {
+            id: 'mapButton',
+            text: 'Map'
+          }
+        ],
         drawBehind: true,
         transparent: true,
         translucent: true,
@@ -40,12 +80,24 @@ export default class Screen2 extends React.Component {
   
   constructor(props) {
     super(props);
-    const initialState = {}
-    props.productData.stores_in_stock.forEach((store, idx) => initialState[`collapse${idx}`] = true)
+    const initialState = {rightNavBarButton: 'mapButton', showList: true}
+    props.productData.stores_in_stock.forEach((store, idx) => initialState[`collapse${idx}`] = true);
+    Navigation.events().bindComponent(this);
     this.state = initialState
   }
   
-  state = {collapsed: true}
+  navigationButtonPressed({ buttonId }) {
+    const {rightNavBarButton} = this.state;
+    if (buttonId === 'mapButton') {
+      Navigation.mergeOptions(this.props.componentId, listNavOptions);
+      return this.setState({showList: false});
+    }
+    if (buttonId === 'listButton') {
+      Navigation.mergeOptions(this.props.componentId, mapNavOptions);
+      return this.setState({showList: true});
+    }
+    return null;
+  }
   
   renderHeaderCard = () => (
     <ElevatedView
@@ -107,7 +159,7 @@ export default class Screen2 extends React.Component {
     )
   }
   
-  render() {
+  renderList = () => {
     return (
       <ScrollView
         contentContainerStyle={{
@@ -122,6 +174,40 @@ export default class Screen2 extends React.Component {
           {this.renderStores()}
         </View>
       </ScrollView>
+    );
+  };
+  
+  renderMap = () => {
+    return (
+      <View style={{height: '100%'}}>
+        <View style={{flex: 2, padding: 20}}>
+          {this.renderHeaderCard()}
+          <Text style={{marginVertical: 20, fontSize: 17}}>Available at these locations: </Text>
+        </View>
+        <View style={{flex: 5}}>
+          <MapView
+            provider={PROVIDER_GOOGLE}
+            customMapStyle={customMapStyle}
+            style={{
+              width: '100%',
+              height: '100%'
+            }}
+            initialRegion={{
+              latitude: 37.78825,
+              longitude: -122.4324,
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421,
+            }}
+          />
+        </View>
+      </View>
     )
+  }
+  
+  render() {
+    if (this.state.showList) {
+      return this.renderList();
+    }
+    return this.renderMap();
   }
 }

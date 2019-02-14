@@ -52,7 +52,15 @@ class Scanner extends Component {
   }
   
   componentDidMount () {
-    return this.queryProductFamilies('12186973001499');
+    const barcode = '12186973001499';
+    return this.queryProductFamilies('12186973001499').then((productData) => {
+      return Navigation.push(this.props.componentId, {
+        component: {
+          name: 'Results',
+          passProps: {barcode, productData}
+        }
+      })
+    })
   }
   
   
