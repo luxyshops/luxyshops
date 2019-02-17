@@ -4,7 +4,7 @@ import {Text, TouchableOpacity, View} from 'react-native';
 import styled from 'styled-components';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Collapsible from 'react-native-collapsible';
-import openMap from 'react-native-open-maps';
+import {createOpenLink} from 'react-native-open-maps';
 
 import AvailableColors from './AvailableColors'
 
@@ -70,16 +70,19 @@ const DirectionsButtonTouchable = styled(TouchableOpacity)`
 `
 
 const DirectionsButtonText = styled(Text)`
-  padding-vertical: 2px;
+  padding-vertical: 3px;
   color: white;
   font-size: 11px
 `
 
 class StoreCollapsible extends Component {
   renderDirectionsButton = () => {
+    const {location: {lat, lng}, name, address} = this.props;
     return (
       <DirectionsButtonWrapper>
-        <DirectionsButtonTouchable onPress={() => openMap({latitude: 37.865101, longitude: -119.538330, provider: 'google'})}>
+        <DirectionsButtonTouchable
+          onPress={createOpenLink({latitude: lat, longitude: lng, provider: 'google'})}
+        >
           <DirectionsButtonText>DIRECTIONS</DirectionsButtonText>
         </DirectionsButtonTouchable>
       </DirectionsButtonWrapper>
@@ -99,17 +102,38 @@ class StoreCollapsible extends Component {
   }
   
   render() {
-    const {name, address, sizes_available, colors_available, onCollapse, collapsed, working_hours} = this.props
+    const {name, address, sizes_available,
+      colors_available, onCollapse, collapsed,
+      working_hours, variations_available} = this.props
     return (
       <ElevatedWrapper elevation={3}>
         <UnCollapsiblePartWrapper>
           <ProductDataWrapper>
             <StoreName>{name}</StoreName>
             <StoreAddress>{address}</StoreAddress>
-            <Text style={{marginBottom: 10}}>
-              Available sizes: {sizes_available.map((size, index) => (index === sizes_available.length - 1) ? `${size}` : `${size} - `)}
-            </Text>
-            <AvailableColors colors={colors_available} />
+            {sizes_available && (
+              <Text style={{marginBottom: 10}}>
+                Available sizes: {sizes_available.map((size, index) => {
+                if (index === sizes_available.length - 1) {
+                  return <Text key={index}>{size}</Text>
+                }
+                return <Text key={index}>{size} - </Text>
+              })}
+              </Text>
+            )}
+            {colors_available && (
+              <AvailableColors colors={colors_available} />
+            )}
+            {variations_available && (
+              <Text style={{marginBottom: 10}}>
+                Available variations: {variations_available.map((variation, index) => {
+                  if (index === variations_available.length - 1) {
+                    return <Text key={index}>{variation}</Text>
+                  }
+                  return <Text key={index}>{variation} - </Text>
+                })}
+              </Text>
+            )}
           </ProductDataWrapper>
           <ChevronWrapper>
             <TouchableOpacity onPress={() => onCollapse()}>
@@ -121,8 +145,8 @@ class StoreCollapsible extends Component {
         <Collapsible collapsed={collapsed} align="center">
           <CollapsibleInnerWrapper>
             <View style={{flex: 1}}>
-              {working_hours.map(time => (
-                <WorkingHours>{time}</WorkingHours>
+              {working_hours.map((time, index) => (
+                <WorkingHours key={index}>{time}</WorkingHours>
               ))}
             </View>
             {this.renderDirectionsButton()}

@@ -1,35 +1,95 @@
 {
   "productFamilies" : {
+    "-LYvV_DQb5CcjMbc9rpF" : [ {
+      "bar_codes" : [ "80127206000399" ],
+      "name" : "Blue bowl",
+      "type": "kitchen",
+      "stores_in_stock" : [ {
+        "address" : "900 Dufferin St W Toronto, ON M6H 4A9",
+        "colors_available" : [ "white", "#D7D8DA", "#36465A", "#BB8969" ],
+        "name" : "Marshalls - Dufferin Mall",
+        "short_name": "Dufferin",
+        "placeId" : "ChIJD9aQMls0K4gR7np7iQxTntg",
+        "location": {"lat":43.6549467,"lng":-79.4336314},
+        "variations_available" : [ "var 1", "var 2", "var 3" ],
+        "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
+      }, {
+        "address" : "585 Queen St W, Toronto ON M5V 2B7",
+        "colors_available" : [ "#D7D8DA", "#FF6C57", "#36465A" ],
+        "name" : "Winners - Queen St W",
+        "short_name": "Winners",
+        "placeId" : "ChIJx7uZld00K4gR7WB03kph7o8",
+        "location": {"lat":43.6474074,"lng":-79.40162119999999},
+        "variations_available" : [ "var 1", "var 2" ],
+        "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
+      }]
+    } ],
+    "-LYvWcJQy8XbdUQzzYYe" : [ {
+      "bar_codes" : [ "8308182105000210", "8378051729000210" ],
+      "name" : "Christmas toy",
+      "type": "toy",
+      "stores_in_stock" : [ {
+        "address" : "900 Dufferin St W Toronto, ON M6H 4A9",
+        "colors_available" : [ "white", "#D7D8DA", "#36465A", "#BB8969" ],
+        "name" : "Marshalls - Dufferin Mall",
+        "short_name": "Dufferin",
+        "placeId" : "ChIJD9aQMls0K4gR7np7iQxTntg",
+        "location": {"lat":43.6549467,"lng":-79.4336314},
+        "variations_available" : [ "var 1", "var 2", "var 3" ],
+        "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
+      }, {
+        "address" : "585 Queen St W, Toronto ON M5V 2B7",
+        "colors_available" : [ "#D7D8DA", "#FF6C57", "#36465A" ],
+        "name" : "Winners - Queen St W",
+        "short_name": "Winners",
+        "placeId" : "ChIJx7uZld00K4gR7WB03kph7o8",
+        "location": {"lat":43.6474074,"lng":-79.40162119999999},
+        "variations_available" : [ "var 1", "var 2", "var 3" ],
+        "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
+      }]
+    } ],
     "0EwCS0k5YaY0U7D9mQ5AmGI1b983" : [ {
       "bar_codes" : [ "12186973001499" ],
       "name" : "T-shirt",
+      "type": "clothing",
       "price" : "$24.99",
-      "stores_in_stock" : [
-        {
-          "address" : "900 Dufferin St W Toronto, ON M6H 4A9",
-          "colors_available" : [ "white", "#D7D8DA", "#36465A", "#BB8969" ],
-          "name" : "Marshalls - Dufferin Mall",
-          "placeId" : "ChIJD9aQMls0K4gR7np7iQxTntg",
-          "sizes_available" : [ "S", "M" ],
-          "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
-        },
-        {
-          "address" : "585 Queen St W, Toronto ON M5V 2B7",
-          "colors_available" : [ "#D7D8DA", "#FF6C57", "#36465A" ],
-          "name" : "Winners - Queen St W",
-          "placeId" : "ChIJD9aQMls0K4gR7np7iQxTntg",
-          "sizes_available" : [ "XS", "M", "XXL" ],
-          "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
-        },
-        {
-          "address" : "585 Queen St W, Toronto ON M5V 2B7",
-          "colors_available" : [ "#D7D8DA", "#FF6C57", "#36465A", "green", "black" ],
-          "name" : "Winners - Queen St W",
-          "placeId" : "ChIJD9aQMls0K4gR7np7iQxTntg",
-          "sizes_available" : [ "XS", "M", "L", "XL", "XXL" ],
-          "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
-        } ],
+      "stores_in_stock" : [ {
+        "address" : "900 Dufferin St W Toronto, ON M6H 4A9",
+        "colors_available" : [ "white", "#D7D8DA", "#36465A", "#BB8969" ],
+        "name" : "Marshalls - Dufferin Mall",
+        "short_name": "Dufferin",
+        "placeId" : "ChIJD9aQMls0K4gR7np7iQxTntg",
+        "location": {"lat":43.6549467,"lng":-79.4336314},
+        "sizes_available" : [ "S", "M" ],
+        "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
+      }, {
+        "address" : "585 Queen St W, Toronto ON M5V 2B7",
+        "colors_available" : [ "#D7D8DA", "#FF6C57", "#36465A" ],
+        "name" : "Winners - Queen St W",
+        "short_name": "Winners",
+        "placeId" : "ChIJx7uZld00K4gR7WB03kph7o8",
+        "location": {"lat":43.6474074,"lng":-79.40162119999999},
+        "sizes_available" : [ "XS", "M", "XXL" ],
+        "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
+      }],
       "style" : "4234325234t32r"
     } ]
+  },
+  "users" : {
+    "6yzkYsUoMncU1GxypJz4EZSyBMg2" : {
+      "name" : "Test"
+    },
+    "URIbT8exCiM6zWCL5rcbiindwnI2" : {
+      "name" : "Ksenia"
+    },
+    "YF4ClQJVUsVXEXjVN0vZhbdbAZY2" : {
+      "name" : "Paul "
+    },
+    "qc8nUlecgbgGVLKZ2qPAR1YMpjb2" : {
+      "name" : "Алла"
+    },
+    "x025EaJTdvMnMUHrtfeiupYIiG02" : {
+      "name" : "Ridiculous"
+    }
   }
 }

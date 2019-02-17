@@ -51,6 +51,16 @@ class Scanner extends Component {
     return this.setState({stopScanning: false, barcode: null, readingBarcode: false});
   }
   
+  // componentDidMount () {
+  //   firebase.database().ref('productFamilies').push({
+  //     0: {
+  //       name: 'Christmas toy',
+  //       bar_codes: ['8308182105000210', '8378051729000210'],
+  //     }
+  //   })
+  // }
+  
+  
   componentDidMount () {
     const barcode = '12186973001499';
     return this.queryProductFamilies('12186973001499').then((productData) => {
@@ -77,7 +87,7 @@ class Scanner extends Component {
   
   async onBarCodeRead() {
     const {barcode} = this.state
-    console.log('barcode', barcode)
+    console.warn('barcode', barcode)
     const productData = await this.queryProductFamilies(barcode);
     
     if (productData) {

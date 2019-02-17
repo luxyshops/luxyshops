@@ -7,7 +7,7 @@ const StyledWrapper = styled.View`
   flex-direction: row;
   align-items: center;
   text-align: center;
-  margin-bottom: 10px;
+  margin-vertical: 10px;
 `
 
 const ColorCircle = styled.View`
