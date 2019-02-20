@@ -7,10 +7,10 @@ import {
   Image,
   Dimensions,
   Animated,
-} from 'react-native'
+} from 'react-native';
 import StoreCollapsible from './components/StoreCollapsible'
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {responsiveFontSize, responsiveHeight, responsiveWidth} from 'react-native-responsive-dimensions';
+import {responsiveFontSize as rf, responsiveHeight as rh, responsiveWidth as rw} from 'react-native-responsive-dimensions';
 import _ from 'lodash';
 import ElevatedView from 'react-native-elevated-view';
 import customMapStyle from './customMapStyle';
@@ -27,8 +27,13 @@ import styled from 'styled-components';
 
 const { width, height } = Dimensions.get('window');
 
+const getCurrentLocation = () => {
+  return new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(position => resolve(position), e => reject(e));
+  });
+};
 const WorkingHours = styled.Text`
-  font-size: 11px;
+  font-size: ${rf(1.5)}px;
   color: #C7CFD9;
   margin-bottom: 10px;
 `
@@ -38,16 +43,24 @@ const listNavOptions = {
     rightButtons: [
       {
         id: 'listButton',
-        text: 'List'
+        text: 'List',
       }
     ],
     title: {
       text: 'Map',
+    },background: {
+      color: 'transparent',
     },
-    drawBehind: false,
-    transparent: false,
+    drawBehind: true,
+    transparent: true,
     translucent: false,
     hideOnScroll: false,
+  },
+}
+
+const noRightButtonOptions = {
+  topBar: {
+    rightButtons: []
   }
 }
 
@@ -61,6 +74,9 @@ const mapNavOptions = {
     ],
     title: {
       text: 'Search results',
+    },
+    background: {
+      color: 'transparent',
     },
     drawBehind: true,
     transparent: true,
@@ -93,12 +109,14 @@ export default class Results extends React.Component {
     return {
       topBar: {
         backButton: { // android
-          color: "rgba(60, 109, 240, 0.87)",
+          color: "black",
+          title: ''
         },
         rightButtons: [
           {
             id: 'mapButton',
-            text: 'Map'
+            text: 'Map',
+            color: 'black'
           }
         ],
         drawBehind: true,
@@ -123,20 +141,68 @@ export default class Results extends React.Component {
   
   constructor(props) {
     super(props);
-    const initialState = {rightNavBarButton: 'mapButton', showList: true, markers: this.markers()}
+    const initialState = {rightNavBarButton: 'mapButton', showList: true, markers: this.markers(), userLocation: null}
     props.productData.stores_in_stock.forEach((store, idx) => initialState[`collapse${idx}`] = true);
     Navigation.events().bindComponent(this);
-    this.translateAnimatableButtonY = new Animated.Value(100);
+    this.translateAnimatableButtonY = new Animated.Value(rh(20));
     this.animatableButtonOpacity = new Animated.Value(0);
     this.translateAnimatableHeaderY = new Animated.Value(0);
     this.animatableHeaderOpacity = new Animated.Value(1);
+    this.translateAnimatableCenterButtonY = new Animated.Value(rh(40));
     this.state = initialState
   }
   
+  componentDidMount () {
+    getCurrentLocation().then(location => {
+      if (location) {
+        console.log('location', location)
+        return this.setState({userLocation: {
+            latitude: location.coords.latitude,
+            longitude: location.coords.longitude,
+            latitudeDelta: 0.003,
+            longitudeDelta: 0.003,
+          }});
+      }
+    });
+  }
+  
+  
+  handleCenter = () => {
+    const {userLocation} = this.state;
+    console.log('pressed')
+    if (!userLocation) {
+      return null;
+    }
+    const { latitude, longitude, latitudeDelta, longitudeDelta } = userLocation;
+    this.map.animateToRegion({
+      latitude,
+      longitude,
+      latitudeDelta,
+      longitudeDelta
+    })
+  }
+  
+  lowerCenterButton = () => {
+    return Animated.spring(this.translateAnimatableCenterButtonY, {
+      toValue: 300,
+      duration: 1,
+      useNativeDriver: true,
+    });
+  }
+  
+  raiseCenterButton = () => {
+    return Animated.spring(this.translateAnimatableCenterButtonY, {
+      toValue: 0,
+      duration: 1,
+      useNativeDriver: true,
+    });
+  }
+  
   hideHeader = () => {
+    Navigation.mergeOptions(this.props.componentId, noRightButtonOptions);
     return Animated.parallel([
       Animated.spring(this.translateAnimatableHeaderY, {
-        toValue: -300,
+        toValue: -rh(40),
         duration: 300,
         useNativeDriver: true,
       }),
@@ -153,6 +219,11 @@ export default class Results extends React.Component {
       Animated.timing(this.animatableButtonOpacity, {
         toValue: 1,
         duration: 300,
+        useNativeDriver: true,
+      }),
+      Animated.spring(this.translateAnimatableCenterButtonY, {
+        toValue: rh(2),
+        duration: 1,
         useNativeDriver: true,
       }),
     ]).start(() => this.setState({ topButtonAnimationIsDone: true }));
@@ -171,7 +242,7 @@ export default class Results extends React.Component {
         useNativeDriver: true,
       }),
       Animated.spring(this.translateAnimatableButtonY, {
-        toValue: 100,
+        toValue: rh(20),
         duration: 300,
         useNativeDriver: true,
       }),
@@ -180,7 +251,15 @@ export default class Results extends React.Component {
         duration: 300,
         useNativeDriver: true,
       }),
-    ]).start(() => this.setState({ markers: this.markers() }));
+      Animated.spring(this.translateAnimatableCenterButtonY, {
+        toValue: rh(40),
+        duration: 1,
+        useNativeDriver: true,
+      })
+    ]).start(() => {
+      Navigation.mergeOptions(this.props.componentId, listNavOptions);
+      this.setState({ markers: this.markers() })
+    });
   }
   
   markers = (onlyLocation = false) => {
@@ -408,8 +487,33 @@ export default class Results extends React.Component {
         <Animated.View
           style={{
             position: 'absolute',
-            top: 0,
+            right: 0,
             zIndex: 1,
+            transform: [{
+              translateY: this.translateAnimatableCenterButtonY
+            }]
+          }}
+        >
+          <TouchableOpacity
+            activeOpacity={0.9}
+            style={{
+              height: 60,
+              width: 60,
+            }}
+            onPress={this.handleCenter}
+          >
+            <Image
+              style={{flex: 1, height: undefined, width: undefined}}
+              resizeMode="contain"
+              source={CenterMap}
+            />
+          </TouchableOpacity>
+        </Animated.View>
+        <Animated.View
+          style={{
+            position: 'absolute',
+            zIndex: 1,
+            top: 0,
             left: 0,
             right: 0,
             backgroundColor: 'white',
@@ -418,8 +522,13 @@ export default class Results extends React.Component {
             }],
           }}
         >
-          {this.renderHeaderCard()}
-          {/*<Text style={{marginVertical: 20, fontSize: 17}}>Available at these locations: </Text>*/}
+          <ElevatedView style={{paddingHorizontal: 20,
+            paddingTop: 70,
+            paddingBottom: 50,
+            backgroundColor: 'white'}} elevation={5}>
+            {this.renderHeaderCard()}
+            <Text style={{fontSize: 15}}>Available at these locations: </Text>
+          </ElevatedView>
         </Animated.View>
         <View style={{flex: 1}}>
           <MapView
@@ -428,8 +537,10 @@ export default class Results extends React.Component {
             ref={ref => { this.map = ref; }}
             style={{
               width: '100%',
-              height: '100%'
+              height: '100%',
+              position: 'relative',
             }}
+            showsUserLocation
             initialRegion={{
               latitude: LATITUDE,
               longitude: LONGITUDE,
@@ -437,17 +548,6 @@ export default class Results extends React.Component {
               longitudeDelta: LONGITUDE_DELTA,
             }}
           >
-            <TouchableOpacity
-              activeOpacity={0.8}
-              style={{position: 'absolute', right: 0, top: 0, height: 50, width: 50}}
-              onPress={() => this.fitAllMarkers()}
-            >
-              <Image
-                style={{flex: 1, height: undefined, width: undefined}}
-                resizeMode="contain"
-                source={CenterMap}
-              />
-            </TouchableOpacity>
             {this.state.markers.map((marker, i) => (
               <Marker
                 key={i}

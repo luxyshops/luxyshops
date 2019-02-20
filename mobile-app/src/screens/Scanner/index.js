@@ -61,17 +61,17 @@ class Scanner extends Component {
   // }
   
   
-  componentDidMount () {
-    const barcode = '12186973001499';
-    return this.queryProductFamilies('12186973001499').then((productData) => {
-      return Navigation.push(this.props.componentId, {
-        component: {
-          name: 'Results',
-          passProps: {barcode, productData}
-        }
-      })
-    })
-  }
+  // componentDidMount () {
+  //   const barcode = '12186973001499';
+  //   return this.queryProductFamilies('12186973001499').then((productData) => {
+  //     return Navigation.push(this.props.componentId, {
+  //       component: {
+  //         name: 'Results',
+  //         passProps: {barcode, productData}
+  //       }
+  //     })
+  //   })
+  // }
   
   
   async queryProductFamilies (barcode) {

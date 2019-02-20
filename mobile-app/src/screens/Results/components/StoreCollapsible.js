@@ -101,39 +101,58 @@ class StoreCollapsible extends Component {
     )
   }
   
+  renderWorkingHours = () => {
+    const {working_hours} = this.props;
+    return (
+      <View style={{flex: 1}}>
+        {working_hours.map((time, index) => (
+          <WorkingHours key={index}>{time}</WorkingHours>
+        ))}
+      </View>
+    );
+  };
+  
+  renderVariations = () => {
+    const type = 'variations';
+    return this.renderOptions(type);
+  };
+  
+  renderOptions = (type) => {
+    const options = this.props[`${type}_available`];
+    if (options) {
+      return (
+        <Text style={{marginBottom: 10}}>
+          Available {type}: {options.map((value, index) => {
+          if (index === options.length - 1) {
+            return <Text key={index}>{value}</Text>
+          }
+          return <Text key={index}>{value} - </Text>
+        })}
+        </Text>
+      );
+    }
+    return null;
+  };
+  
+  renderSizes = () => {
+    const type = 'sizes';
+    return this.renderOptions(type)
+  }
+  
   render() {
-    const {name, address, sizes_available,
+    const {
+      name, address,
       colors_available, onCollapse, collapsed,
-      working_hours, variations_available} = this.props
+    } = this.props;
     return (
       <ElevatedWrapper elevation={3}>
         <UnCollapsiblePartWrapper>
           <ProductDataWrapper>
             <StoreName>{name}</StoreName>
             <StoreAddress>{address}</StoreAddress>
-            {sizes_available && (
-              <Text style={{marginBottom: 10}}>
-                Available sizes: {sizes_available.map((size, index) => {
-                if (index === sizes_available.length - 1) {
-                  return <Text key={index}>{size}</Text>
-                }
-                return <Text key={index}>{size} - </Text>
-              })}
-              </Text>
-            )}
-            {colors_available && (
-              <AvailableColors colors={colors_available} />
-            )}
-            {variations_available && (
-              <Text style={{marginBottom: 10}}>
-                Available variations: {variations_available.map((variation, index) => {
-                  if (index === variations_available.length - 1) {
-                    return <Text key={index}>{variation}</Text>
-                  }
-                  return <Text key={index}>{variation} - </Text>
-                })}
-              </Text>
-            )}
+            {this.renderSizes()}
+            <AvailableColors colors={colors_available} />
+            {this.renderVariations()}
           </ProductDataWrapper>
           <ChevronWrapper>
             <TouchableOpacity onPress={() => onCollapse()}>
@@ -141,14 +160,9 @@ class StoreCollapsible extends Component {
             </TouchableOpacity>
           </ChevronWrapper>
         </UnCollapsiblePartWrapper>
-    
         <Collapsible collapsed={collapsed} align="center">
           <CollapsibleInnerWrapper>
-            <View style={{flex: 1}}>
-              {working_hours.map((time, index) => (
-                <WorkingHours key={index}>{time}</WorkingHours>
-              ))}
-            </View>
+            {this.renderWorkingHours()}
             {this.renderDirectionsButton()}
           </CollapsibleInnerWrapper>
         </Collapsible>

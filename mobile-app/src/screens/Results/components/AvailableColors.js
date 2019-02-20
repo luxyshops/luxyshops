@@ -21,6 +21,10 @@ const ColorCircle = styled.View`
 
 export default class AvailableColors extends Component {
   render() {
+    const {colors} = this.props;
+    if (!colors) {
+      return null;
+    }
     return (
       <StyledWrapper>
         <Text>Colors:</Text>
