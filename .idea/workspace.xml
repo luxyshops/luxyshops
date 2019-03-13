@@ -2,15 +2,87 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d3b51b1-ed18-4bed-857c-6ce180365e4c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/mobile-app/src/screens/Results/customMapStyle.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/bottom-heart-selected@1x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/bottom-heart-selected@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/bottom-heart-selected@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/bottom-heart@1x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/bottom-heart@2x.png.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/bottom-heart@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/bottom-profile-unselected@1x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/bottom-profile-unselected@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/bottom-profile-unselected@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/bottom-profile@1x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/bottom-profile@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/bottom-scanner-selected@1x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/bottom-scanner-selected@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/bottom-scanner-selected@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/bottom-scanner@1x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/bottom-scanner@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/bottom-scanner@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/facebook@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/filter-checkmark-active.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/filter-checkmark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/filters_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/find_in_stores@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/form-checkmark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/form-error.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/logout.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/profile-forms.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/profile_picture.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/scanner-wallpaper.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/scanner_background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/search@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/walkthrough_first@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/walkthrough_first_full@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/walkthrough_second@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/walkthrough_second_full@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/assets/wishlist_empty.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/components/HeaderCard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/components/Map.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/components/TextInput.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/icons/profile-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/icons/scan_btn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/redux/createStore.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/redux/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/redux/reducers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/screens/Initializing/animation.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/screens/Profile/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/screens/Results/Filters.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/screens/Scanner/ScannerIntro.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-app/src/screens/WishList/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/android/app/src/main/assets/fonts/FontAwesome5_Brands.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/android/app/src/main/assets/fonts/FontAwesome5_Brands.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/android/app/src/main/assets/fonts/FontAwesome5_Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/android/app/src/main/assets/fonts/FontAwesome5_Regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/android/app/src/main/assets/fonts/FontAwesome5_Solid.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/android/app/src/main/assets/fonts/FontAwesome5_Solid.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/android/app/src/main/assets/fonts/MaterialCommunityIcons.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/android/app/src/main/assets/fonts/MaterialCommunityIcons.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/android/app/src/main/assets/fonts/Octicons.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/android/app/src/main/assets/fonts/Octicons.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/android/app/src/main/java/com/insighty/luxyshops/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/android/app/src/main/java/com/insighty/luxyshops/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/android/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/android/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/bg.png" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/bg.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/center-map.png" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/center-map.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mobile-app/ios/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/Podfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/Podfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/Podfile.lock" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/mobile-app/ios/luxyshops.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/luxyshops.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-app/ios/luxyshops/AppDelegate.m" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/luxyshops/AppDelegate.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/ios/luxyshops/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/ios/luxyshops/Info.plist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mobile-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/pin.png" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/pin.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/pink-pin.png" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/pink-pin.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/src/icons/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/src/icons/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/src/navigation/methods.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/src/navigation/methods.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/src/navigation/screens.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/src/navigation/screens.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/src/screens/Initializing/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/src/screens/Initializing/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/src/screens/Results/components/StoreCollapsible.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/src/screens/Results/components/StoreCollapsible.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mobile-app/src/screens/Results/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/src/screens/Results/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mobile-app/src/screens/Scanner/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/src/screens/Scanner/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/src/screens/SignIn/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/src/screens/SignIn/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/src/screens/SignUp/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/src/screens/SignUp/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/src/screens/Walkthrough/Carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/src/screens/Walkthrough/Carousel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/src/screens/Walkthrough/SliderEntry.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/src/screens/Walkthrough/SliderEntry.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/src/screens/Walkthrough/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/src/screens/Walkthrough/data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/src/screens/Walkthrough/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-app/src/screens/Walkthrough/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -25,46 +97,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Initializing/index.js">
+        <entry file="file://$PROJECT_DIR$/mobile-app/src/components/Map.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+            <state relative-caret-position="414">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
               <folding>
-                <element signature="e#0#25#0" expanded="true" />
+                <element signature="e#0#39#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mobile-app/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-              <folding>
-                <element signature="e#12#63#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Scanner/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="54" column="37" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="37" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Results/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="181" column="37" lean-forward="true" selection-start-line="181" selection-start-column="37" selection-end-line="181" selection-end-column="37" />
+            <state relative-caret-position="475">
+              <caret line="380" column="28" selection-start-line="380" selection-start-column="28" selection-end-line="380" selection-end-column="28" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -73,21 +121,39 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Results/customMapStyle.json">
+        <entry file="file://$PROJECT_DIR$/mobile-app/src/navigation/methods.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+            <state relative-caret-position="205">
+              <caret line="116" column="29" selection-start-line="116" selection-start-column="29" selection-end-line="116" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Results/Filters.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="159">
+              <caret line="79" column="16" lean-forward="true" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="16" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mobile-app/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/mobile-app/assets/bottom-profile@2x.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mobile-app/assets/bottom-profile@1x.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mobile-app/assets/bottom-profile@3x.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -120,6 +186,11 @@
       <find>ProductDataWrapper</find>
       <find>productData</find>
       <find>goHome</find>
+      <find>title</find>
+      <find>textColor</find>
+      <find>bottom-profile</find>
+      <find>../../assets/bottom-profile@3x.png</find>
+      <find>selectedTextColor</find>
     </findStrings>
     <replaceStrings>
       <replace>goToScanner</replace>
@@ -141,27 +212,31 @@
         <option value="$PROJECT_DIR$/mobile-app/src/icons/Circle.svg" />
         <option value="$PROJECT_DIR$/mobile-app/src/components/Results/AvailableColors.js" />
         <option value="$PROJECT_DIR$/mobile-app/db.json" />
-        <option value="$PROJECT_DIR$/mobile-app/package.json" />
         <option value="$PROJECT_DIR$/mobile-app/src/components/Results/StoreCollapsible.js" />
         <option value="$PROJECT_DIR$/mobile-app/src/config.js" />
-        <option value="$PROJECT_DIR$/mobile-app/index.js" />
-        <option value="$PROJECT_DIR$/mobile-app/src/screens/SignIn/index.js" />
-        <option value="$PROJECT_DIR$/mobile-app/src/screens/SignUp/index.js" />
         <option value="$PROJECT_DIR$/mobile-app/src/screens/Walkthrough/carousel.js" />
         <option value="$PROJECT_DIR$/mobile-app/src/components/Text.js" />
         <option value="$PROJECT_DIR$/mobile-app/src/screens/Walkthrough/data.js" />
         <option value="$PROJECT_DIR$/mobile-app/src/screens/Walkthrough/ProgressSlider.js" />
         <option value="$PROJECT_DIR$/mobile-app/src/navigation/screens.js" />
-        <option value="$PROJECT_DIR$/mobile-app/src/navigation/methods.js" />
-        <option value="$PROJECT_DIR$/mobile-app/src/screens/Walkthrough/SliderEntry.js" />
         <option value="$PROJECT_DIR$/mobile-app/src/screens/Walkthrough/index.js" />
         <option value="$PROJECT_DIR$/mobile-app/src/components/Button.js" />
         <option value="$PROJECT_DIR$/mobile-app/src/screens/Walkthrough/Carousel.js" />
         <option value="$PROJECT_DIR$/mobile-app/src/screens/Initializing/index.js" />
         <option value="$PROJECT_DIR$/mobile-app/ios/Podfile" />
-        <option value="$PROJECT_DIR$/mobile-app/src/screens/Scanner/index.js" />
         <option value="$PROJECT_DIR$/mobile-app/src/screens/Results/customMapStyle.json" />
+        <option value="$PROJECT_DIR$/mobile-app/package.json" />
+        <option value="$PROJECT_DIR$/mobile-app/index.js" />
+        <option value="$PROJECT_DIR$/mobile-app/src/screens/SignUp/index.js" />
+        <option value="$PROJECT_DIR$/mobile-app/src/screens/Walkthrough/SliderEntry.js" />
+        <option value="$PROJECT_DIR$/mobile-app/src/screens/Scanner/ScannerIntro.js" />
+        <option value="$PROJECT_DIR$/mobile-app/src/screens/SignIn/index.js" />
+        <option value="$PROJECT_DIR$/mobile-app/src/screens/Profile/index.js" />
+        <option value="$PROJECT_DIR$/mobile-app/src/screens/Scanner/index.js" />
+        <option value="$PROJECT_DIR$/mobile-app/src/screens/Results/components/StoreCollapsible.js" />
+        <option value="$PROJECT_DIR$/mobile-app/src/components/Map.js" />
         <option value="$PROJECT_DIR$/mobile-app/src/screens/Results/index.js" />
+        <option value="$PROJECT_DIR$/mobile-app/src/navigation/methods.js" />
       </list>
     </option>
   </component>
@@ -187,42 +262,47 @@
         <subPane>
           <expand>
             <path>
-              <item name="luxyshops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="luxyshops" type="462c0819:PsiDirectoryNode" />
+              <item name="luxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="luxy" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="luxyshops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="luxyshops" type="462c0819:PsiDirectoryNode" />
+              <item name="luxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="luxy" type="462c0819:PsiDirectoryNode" />
               <item name="mobile-app" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="luxyshops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="luxyshops" type="462c0819:PsiDirectoryNode" />
+              <item name="luxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="luxy" type="462c0819:PsiDirectoryNode" />
+              <item name="mobile-app" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="luxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="luxy" type="462c0819:PsiDirectoryNode" />
               <item name="mobile-app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="luxyshops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="luxyshops" type="462c0819:PsiDirectoryNode" />
+              <item name="luxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="luxy" type="462c0819:PsiDirectoryNode" />
+              <item name="mobile-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="navigation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="luxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="luxy" type="462c0819:PsiDirectoryNode" />
               <item name="mobile-app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="screens" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="luxyshops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="luxyshops" type="462c0819:PsiDirectoryNode" />
+              <item name="luxy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="luxy" type="462c0819:PsiDirectoryNode" />
               <item name="mobile-app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="screens" type="462c0819:PsiDirectoryNode" />
               <item name="Results" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="luxyshops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="luxyshops" type="462c0819:PsiDirectoryNode" />
-              <item name="mobile-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="screens" type="462c0819:PsiDirectoryNode" />
-              <item name="Scanner" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -235,6 +315,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JSON" />
     <property name="editor.config.ad.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -246,16 +327,16 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/mobile-app" />
-      <recent name="$PROJECT_DIR$/mobile-app/src/icons" />
       <recent name="$PROJECT_DIR$/mobile-app/assets" />
+      <recent name="$PROJECT_DIR$/mobile-app/src/icons" />
       <recent name="$PROJECT_DIR$/mobile-app/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mobile-app/assets" />
       <recent name="$PROJECT_DIR$/mobile-app/src/screens/Results/components" />
       <recent name="$PROJECT_DIR$/mobile-app/src/screens/Results" />
       <recent name="$PROJECT_DIR$/mobile-app/src/navigation" />
       <recent name="$PROJECT_DIR$/mobile-app" />
-      <recent name="$PROJECT_DIR$/bg" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -303,17 +384,19 @@
       <workItem from="1550125997968" duration="979000" />
       <workItem from="1550153760887" duration="504000" />
       <workItem from="1550156480507" duration="3878000" />
+      <workItem from="1552386421002" duration="1819000" />
+      <workItem from="1552459575178" duration="3936000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73877000" />
+    <option name="totallyTimeSpent" value="79632000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18675123" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18675123" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -343,60 +426,11 @@
     </ignored-roots>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mobile-app/LICENSE" />
-    <entry file="file://$PROJECT_DIR$/mobile-app/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="460">
-            <caret line="20" column="22" lean-forward="true" selection-end-line="89" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile-app/ios/GoogleService-Info.plist">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-259" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile-app/ios/luxyshops/Info.plist">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="22" lean-forward="true" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile-app/src/navigation.js" />
-    <entry file="file://$PROJECT_DIR$/mobile-app/src/tshirt.svg" />
-    <entry file="file://$PROJECT_DIR$/mobile-app/assets/heart.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/mobile-app/src/icons/Circle.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile-app/app.json">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile-app/src/icons/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile-app/db.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="7" column="9" lean-forward="true" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Results/components/AvailableColors.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -413,27 +447,7 @@
         <state relative-caret-position="-6317" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Results/components/StoreCollapsible.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="78" column="28" lean-forward="true" selection-start-line="78" selection-start-column="28" selection-end-line="78" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mobile-app/App.js" />
-    <entry file="file://$PROJECT_DIR$/mobile-app/bg.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/SignUp/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mobile-app/src/components/Text.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -454,35 +468,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mobile-app/src/navigation/methods.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="62" column="3" lean-forward="true" selection-start-line="62" selection-start-column="3" selection-end-line="62" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Walkthrough/ProgressSlider.js" />
     <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Walkthrough/data.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
           <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Walkthrough/SliderEntry.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="70" column="4" lean-forward="true" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/SignIn/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2245">
-          <caret line="124" column="16" lean-forward="true" selection-start-line="124" selection-start-column="16" selection-end-line="124" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -516,16 +506,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Initializing/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mobile-app/ios/Podfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="461">
@@ -533,46 +513,211 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mobile-app/package.json">
+    <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Initializing/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile-app/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+        <state relative-caret-position="207">
+          <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
           <folding>
-            <element signature="e#12#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Scanner/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="54" column="37" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Results/customMapStyle.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+        <state relative-caret-position="207">
+          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/src/icons/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="736">
+          <caret line="32" column="27" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/SignUp/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3289">
+          <caret line="156" column="19" selection-start-line="156" selection-start-column="19" selection-end-line="156" selection-end-column="19" />
+          <folding>
+            <element signature="e#13#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+          <folding>
+            <element signature="e#12#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/db.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/bg.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/assets/walkthrough_first_full@3x.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/assets/walkthrough_first@3x.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Walkthrough/SliderEntry.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="88" column="17" lean-forward="true" selection-start-line="83" selection-start-column="10" selection-end-line="88" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/SignIn/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="46" column="22" lean-forward="true" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Profile/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="39" column="95" selection-start-line="39" selection-start-column="95" selection-end-line="39" selection-end-column="95" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Scanner/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="66" column="2" selection-start-line="66" selection-start-column="2" selection-end-line="82" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Scanner/ScannerIntro.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Results/components/StoreCollapsible.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="106" column="22" selection-start-line="106" selection-start-column="22" selection-end-line="106" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/assets/find_in_stores@3x.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/assets/filters_icon.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/assets/form-checkmark.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/assets/form-error.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/assets/scanner-wallpaper.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/assets/scanner_background.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/assets/search@3x.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/assets/tshirt.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/assets/walkthrough_second@3x.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/assets/wishlist_empty.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/pin.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/Icons/Pin.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/pink-pin.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/center-map.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/src/components/Map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Results/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="181" column="37" lean-forward="true" selection-start-line="181" selection-start-column="37" selection-end-line="181" selection-end-column="37" />
+        <state relative-caret-position="475">
+          <caret line="380" column="28" selection-start-line="380" selection-start-column="28" selection-end-line="380" selection-end-column="28" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/assets/bottom-profile@1x.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/assets/bottom-profile@3x.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/assets/bottom-profile@2x.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/src/navigation/methods.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="116" column="29" selection-start-line="116" selection-start-column="29" selection-end-line="116" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile-app/src/screens/Results/Filters.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="79" column="16" lean-forward="true" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -16,8 +16,11 @@ import ElevatedView from 'react-native-elevated-view';
 import customMapStyle from './customMapStyle';
 import {Navigation} from 'react-native-navigation';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
-
+import { connect } from 'react-redux'
+import { compose } from 'redux'
+import { firebaseConnect, isLoaded, isEmpty, getVal } from 'react-redux-firebase'
 import AvailableColors from './components/AvailableColors';
+import Map from '../../components/Map';
 
 import UnselectedPin from '../../../pin.png';
 import SelectedPin from '../../../pink-pin.png';
@@ -44,11 +47,13 @@ const listNavOptions = {
       {
         id: 'listButton',
         text: 'List',
+        color: '#005840',
       }
     ],
     title: {
       text: 'Map',
-    },background: {
+    },
+    background: {
       color: 'transparent',
     },
     drawBehind: true,
@@ -69,7 +74,8 @@ const mapNavOptions = {
     rightButtons: [
       {
         id: 'mapButton',
-        text: 'Map'
+        text: 'Map',
+        color: '#005840'
       }
     ],
     title: {
@@ -104,7 +110,7 @@ const StoreAddress = styled.Text`
 `
 
 
-export default class Results extends React.Component {
+class Results extends React.Component {
   static get options() {
     return {
       topBar: {
@@ -116,7 +122,7 @@ export default class Results extends React.Component {
           {
             id: 'mapButton',
             text: 'Map',
-            color: 'black'
+            color: '#005840'
           }
         ],
         drawBehind: true,
@@ -141,7 +147,15 @@ export default class Results extends React.Component {
   
   constructor(props) {
     super(props);
-    const initialState = {rightNavBarButton: 'mapButton', showList: true, markers: this.markers(), userLocation: null}
+    
+    const initialState = {
+      rightNavBarButton: 'mapButton',
+      showList: true,
+      markers: this.markers(),
+      userLocation: null,
+      sizesToDisplay: props.productData.sizes_reference,
+    };
+    
     props.productData.stores_in_stock.forEach((store, idx) => initialState[`collapse${idx}`] = true);
     Navigation.events().bindComponent(this);
     this.translateAnimatableButtonY = new Animated.Value(rh(20));
@@ -155,7 +169,6 @@ export default class Results extends React.Component {
   componentDidMount () {
     getCurrentLocation().then(location => {
       if (location) {
-        console.log('location', location)
         return this.setState({userLocation: {
             latitude: location.coords.latitude,
             longitude: location.coords.longitude,
@@ -169,7 +182,6 @@ export default class Results extends React.Component {
   
   handleCenter = () => {
     const {userLocation} = this.state;
-    console.log('pressed')
     if (!userLocation) {
       return null;
     }
@@ -264,7 +276,6 @@ export default class Results extends React.Component {
   
   markers = (onlyLocation = false) => {
     return this.props.productData.stores_in_stock.map((store) => {
-      console.log('store', store)
       const {location, short_name, placeId, name,
         address, sizes_available, colors_available, variations_available, working_hours} = store;
       if (onlyLocation) {
@@ -311,66 +322,93 @@ export default class Results extends React.Component {
     return null;
   }
   
-  renderHeaderCard = () => (
-    <ElevatedView
-      elevation={3}
-      style={{
-        padding: 10,
-        borderRadius: 5,
-        display: 'flex',
-        flexDirection: 'row',
-        backgroundColor: 'white'
-      }}
-    >
-      <Image
+  onItemAdd = () => {
+    const {user, barcode} = this.props;
+    const path = `users/${user.uid}/savedItems`
+    return this.props.firebase.push(path, {barcode})
+  }
+  
+  onItemRemove = (savedKey) => {
+    const {user} = this.props;
+    const path = `users/${user.uid}/savedItems/${savedKey}`
+    return this.props.firebase.remove(path)
+  }
+  
+  renderHeaderCard = () => {
+    const {bar_codes} = this.props.productData;
+    const isSaved = _.keys(this.props.savedItems).find((itemKey) => {
+      return bar_codes.includes(_.get(this.props.savedItems, `${itemKey}.barcode`));
+    });
+    return (
+      <ElevatedView
+        elevation={3}
         style={{
-          height: 100,
-          flex: 2
-        }}
-        resizeMode="contain"
-        source={require('../../../assets/tshirt.jpg')}
-      />
-      <View style={{flex: 3, display: 'flex', justifyContent: 'space-evenly'}}>
-        <Text style={{fontSize: 17, fontWeight: '300'}}>{this.props.productData.name}</Text>
-        {this.props.productData.style && (
-          <Text style={{fontSize: 10, color: '#C7CFD9'}}>Style: {this.props.productData.style}</Text>
-        )}
-        <Text style={{fontSize: 17}}>{this.props.productData.price}</Text>
-      </View>
-      <View
-        style={{
-          flex: 1,
-          alignItems: 'flex-end'
+          padding: 10,
+          borderRadius: 5,
+          display: 'flex',
+          flexDirection: 'row',
+          backgroundColor: 'white'
         }}
       >
-        <TouchableOpacity>
-          <Icon
-            style={{
-              padding: 10,
-            }}
-            name="heart-o"
-            size={20}
-            color="#61CA93"
-          />
-        </TouchableOpacity>
-      </View>
-    </ElevatedView>
-  )
+        <Image
+          style={{
+            height: 100,
+            flex: 2
+          }}
+          resizeMode="contain"
+          source={require('../../../assets/tshirt.jpg')}
+        />
+        <View style={{flex: 3, display: 'flex', justifyContent: 'space-evenly'}}>
+          <Text style={{fontSize: 17, fontWeight: '300'}}>{this.props.productData.name}</Text>
+          {this.props.productData.style && (
+            <Text style={{fontSize: 10, color: '#C7CFD9'}}>Style: {this.props.productData.style}</Text>
+          )}
+          <Text style={{fontSize: 17}}>{this.props.productData.price}</Text>
+        </View>
+        <View
+          style={{
+            flex: 1,
+            alignItems: 'flex-end'
+          }}
+        >
+          <TouchableOpacity onPress={isSaved ? () => this.onItemRemove(isSaved) : this.onItemAdd}>
+            <Icon
+              style={{
+                padding: 10,
+              }}
+              name={isSaved ? 'heart' : 'heart-o'}
+              size={20}
+              color="#005840"
+            />
+          </TouchableOpacity>
+        </View>
+      </ElevatedView>
+    )
+  }
   
   renderStores = () => {
     const {productData} = this.props
     return (
       <View style={{marginBottom: 20}}>
-        {productData.stores_in_stock.map((store, idx) => (
-          <StoreCollapsible
-            collapsed={this.state[`collapse${idx}`]}
-            onCollapse={() => this.setState({[`collapse${idx}`]: !this.state[`collapse${idx}`]})}
-            {...store}
-            key={idx}
-          />
-        ))}
+        {productData.stores_in_stock.map((store, idx) => {
+          const {sizes_available} = store;
+          if (!sizes_available || sizes_available.some(r=> this.state.sizesToDisplay.indexOf(r) >= 0)) {
+            return (
+              <StoreCollapsible
+                collapsed={this.state[`collapse${idx}`]}
+                onCollapse={() => this.setState({[`collapse${idx}`]: !this.state[`collapse${idx}`]})}
+                {...store}
+                key={idx}
+              />
+            );
+          }
+        })}
       </View>
     )
+  }
+  
+  applyNewFilters = (newSizeRange) => {
+    this.setState({sizesToDisplay: newSizeRange})
   }
   
   renderList = () => {
@@ -384,7 +422,35 @@ export default class Results extends React.Component {
           style={{padding: 20}}
         >
           {this.renderHeaderCard()}
-          <Text style={{marginVertical: 20, fontSize: 17}}>Available at these locations: </Text>
+         <View style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
+           <Text style={{marginVertical: 20, fontSize: 17}}>Available at these locations: </Text>
+           {_.get(this.props, 'productData.sizes_reference', null) && (
+             <TouchableOpacity
+               onPress={() => {
+                 return Navigation.push(this.props.componentId, {
+                   component: {
+                     name: 'Filters',
+                     passProps: {
+                       sizes_reference: _.get(this.props, 'productData.sizes_reference'),
+                       sizes_to_display: this.state.sizesToDisplay,
+                       onApply: this.applyNewFilters
+                     },
+                     options: {
+                       bottomTabs: { visible: false, drawBehind: true, animate: true }
+                     }
+                   },
+                 })
+               }}
+               style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}
+             >
+               <Image
+                 source={require('../../../assets/filters_icon.png')}
+                 style={{width: rh(3), height: rh(3), marginRight: rw(3)}}
+               />
+               <Text style={{color: '#175641', fontSize: rf(2)}}>Filters</Text>
+             </TouchableOpacity>
+           )}
+         </View>
           {this.renderStores()}
         </View>
       </ScrollView>
@@ -409,7 +475,6 @@ export default class Results extends React.Component {
   
   renderStoreDetails = (working_hours) => {
     const selectedMarker = this.state.markers.find(({selected}) => selected);
-    console.log('selectedMarker', selectedMarker)
     const sizes = _.get(selectedMarker, 'availableSizes', null);
     const colors = _.get(selectedMarker, 'availableColors', null);
     const variations = _.get(selectedMarker, 'availableVariations', null);
@@ -481,7 +546,6 @@ export default class Results extends React.Component {
   }
   
   renderMap = () => {
-    const {productData} = this.props
     return (
       <View style={{height: '100%'}}>
         <Animated.View
@@ -577,6 +641,25 @@ export default class Results extends React.Component {
     if (this.state.showList) {
       return this.renderList();
     }
-    return this.renderMap();
+    return (
+      <Map
+        onItemAdd={this.onItemAdd}
+        onItemRemove={(savedKey) => this.onItemRemove(savedKey)}
+        productData={this.props.productData}
+      />
+    )
   }
 }
+
+
+export default compose(
+  firebaseConnect([
+    'productFamilies',
+    'users'
+  ]),
+  connect((state) => ({
+    productFamilies: state.firebase.data.productFamilies,
+    user: state.firebase.auth,
+    savedItems: getVal(state.firebase, `data/users/${state.firebase.auth.uid}/savedItems`)
+  }))
+)(Results)

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ElevatedView from 'react-native-elevated-view';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
 import styled from 'styled-components';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Collapsible from 'react-native-collapsible';
@@ -62,17 +62,21 @@ const DirectionsButtonWrapper = styled.View`
   align-items: center;
 `
 const DirectionsButtonTouchable = styled(TouchableOpacity)`
-  background-color: #61CA93;
-  align-items: center;
+  background-color: #175641;
   border-radius: 20px;
   width: 105px;
   margin-left: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 `
 
 const DirectionsButtonText = styled(Text)`
   padding-vertical: 3px;
   color: white;
-  font-size: 11px
+  font-size: 10px;
+  margin-left: 5px;
 `
 
 class StoreCollapsible extends Component {
@@ -83,6 +87,10 @@ class StoreCollapsible extends Component {
         <DirectionsButtonTouchable
           onPress={createOpenLink({latitude: lat, longitude: lng, provider: 'google'})}
         >
+          <Image
+            source={require('../../../../assets/search.png')}
+            style={{width: 10, height: 10}}
+          />
           <DirectionsButtonText>DIRECTIONS</DirectionsButtonText>
         </DirectionsButtonTouchable>
       </DirectionsButtonWrapper>
@@ -96,7 +104,7 @@ class StoreCollapsible extends Component {
         name={collapsed ? 'chevron-down' : 'chevron-up'}
         style={{padding: 10}}
         size={20}
-        color="#61CA93"
+        color="#175641"
       />
     )
   }
@@ -111,6 +119,11 @@ class StoreCollapsible extends Component {
       </View>
     );
   };
+  
+  renderFlavors = () => {
+    const type = 'flavors';
+    return this.renderOptions(type);
+  }
   
   renderVariations = () => {
     const type = 'variations';
@@ -153,6 +166,7 @@ class StoreCollapsible extends Component {
             {this.renderSizes()}
             <AvailableColors colors={colors_available} />
             {this.renderVariations()}
+            {this.renderFlavors()}
           </ProductDataWrapper>
           <ChevronWrapper>
             <TouchableOpacity onPress={() => onCollapse()}>

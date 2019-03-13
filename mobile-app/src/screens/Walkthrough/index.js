@@ -121,21 +121,18 @@ class Walkthrough extends Component {
     
     return (
       <View style={styles.imgBg}>
-        <View style={styles.slide}>
-          <View>
-            <Carousel
-              numOfDots={data.entries.length}
-              data={data.entries}
-              activeSlide={this.state.pageIndex}
-              getRef={c => this.carousel = c}
-              renderItem={this.renderItem}
-              onSnapToItem={(idx) => {
-                this.animate(500);
-                this.setState({page: idx === 0 ? 'welcome' : 'overview', pageIndex: idx});
-              }}
-            />
-          </View>
-        </View>
+        <Carousel
+          numOfDots={data.entries.length}
+          data={data.entries}
+          activeSlide={this.state.pageIndex}
+          onButtonPress={() => this.carousel.snapToNext()}
+          getRef={c => this.carousel = c}
+          renderItem={this.renderItem}
+          onSnapToItem={(idx) => {
+            this.animate(500);
+            this.setState({page: idx === 0 ? 'welcome' : 'overview', pageIndex: idx});
+          }}
+        />
       </View>
     );
   }

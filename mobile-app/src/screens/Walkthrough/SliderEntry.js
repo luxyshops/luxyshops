@@ -12,11 +12,11 @@ import {
 const IS_IOS = Platform.OS === 'ios';
 
 const slideHeight = rh(50);
-const slideWidth = rw(60);
+const slideWidth = rw(100);
 const itemHorizontalMargin = rh(1);
 
 export const sliderWidth = Dimensions.get('window').width;
-export const itemWidth = slideWidth + itemHorizontalMargin * 2;
+export const itemWidth = slideWidth
 
 const entryBorderRadius = 8;
 
@@ -67,22 +67,35 @@ export default class SliderEntry extends Component {
   renderIllustration = illustration => <Image source={illustration} style={styles.image} />;
   
   render() {
-    const {data: {title, illustration, text}} = this.props;
+    const {data: {title, index, text}} = this.props;
     
     return (
-      <ElevatedView
+      <View
         elevation={7}
         style={{
           width: itemWidth,
-          borderWidth: 1,
-          paddingHorizontal: itemHorizontalMargin,
           paddingBottom: 18,
-          backgroundColor: '#61CA93',
           height: rh(50),
           borderRadius: 10,
           marginTop: rh(7),
         }}
-      />
+      >
+        {index === 0 ? (
+          <View style={{width: '100%', display: 'flex', alignItems: 'center'}}>
+            <Image
+              source={require(`../../../assets/walkthrough_first.png`)}
+              style={{width: rw(84), height: rh(47)}}
+            />
+          </View>
+        ) : (
+          <View style={{width: '100%', display: 'flex', alignItems: 'center'}}>
+            <Image
+              source={require(`../../../assets/walkthrough_second.png`)}
+              style={{width: rw(84), height: rh(47)}}
+            />
+          </View>
+        )}
+      </View>
       
     );
   }

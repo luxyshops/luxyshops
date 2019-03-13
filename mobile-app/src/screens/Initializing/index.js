@@ -6,30 +6,30 @@ import {
   AsyncStorage
 } from 'react-native'
 import firebase from 'react-native-firebase';
+import LottieView from 'lottie-react-native';
 
-import { goToAuth, goToScanner, goToWalkthrough } from '../../navigation/methods'
+import { goToAuth, goToApp, goToWalkthrough } from '../../navigation/methods'
 
 import { USER_KEY } from '../../config'
 import SplashScreen from 'react-native-splash-screen'
 
 export default class Initialising extends React.Component {
   componentDidMount() {
+    SplashScreen.hide();
     firebase.auth().onAuthStateChanged((user) => {
-      console.log('user: ', user)
       if (user) {
-        goToScanner()
+        goToApp()
       } else {
-        // goToWalkthrough()
-        goToAuth()
+        goToWalkthrough()
+        // goToAuth()
       }
-      return SplashScreen.hide();
     });
   }
   
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Loading</Text>
+        <Text>Loading...</Text>
       </View>
     )
   }

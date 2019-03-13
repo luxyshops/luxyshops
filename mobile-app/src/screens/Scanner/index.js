@@ -5,7 +5,6 @@ import firebase from 'react-native-firebase';
 import {Navigation} from 'react-native-navigation'
 import _ from 'lodash'
 import { RNCamera } from 'react-native-camera';
-import BG from '../../../bg.png'
 
 class Scanner extends Component {
   static get options() {
@@ -14,7 +13,11 @@ class Scanner extends Component {
         title: {
           text: 'Scanner',
           fontSize: 17,
-          color: 'white'
+          color: 'white',
+        },
+        backButton: {
+          color: "white",
+          title: ''
         },
         drawBehind: true,
         transparent: true,
@@ -54,24 +57,30 @@ class Scanner extends Component {
   // componentDidMount () {
   //   firebase.database().ref('productFamilies').push({
   //     0: {
-  //       name: 'Christmas toy',
-  //       bar_codes: ['8308182105000210', '8378051729000210'],
+  //       name: 'Shoes',
+  //       bar_codes: ['29016230001299'],
   //     }
   //   })
   // }
   
-  
-  // componentDidMount () {
-  //   const barcode = '12186973001499';
-  //   return this.queryProductFamilies('12186973001499').then((productData) => {
-  //     return Navigation.push(this.props.componentId, {
-  //       component: {
-  //         name: 'Results',
-  //         passProps: {barcode, productData}
-  //       }
-  //     })
-  //   })
-  // }
+  //
+  componentDidMount () {
+    // christmas toy = [8308182105000210, 8378051729000210]
+    // bowl 80127206000399
+    // t-shirt 12186973001499
+    const barcode = '29016230001299';
+    return this.queryProductFamilies(barcode).then((productData) => {
+      return Navigation.push(this.props.componentId, {
+        component: {
+          name: 'Results',
+          passProps: {barcode, productData},
+          options: {
+            bottomTabs: { visible: false, drawBehind: true, animate: true }
+          }
+        },
+      })
+    })
+  }
   
   
   async queryProductFamilies (barcode) {
@@ -87,7 +96,6 @@ class Scanner extends Component {
   
   async onBarCodeRead() {
     const {barcode} = this.state
-    console.warn('barcode', barcode)
     const productData = await this.queryProductFamilies(barcode);
     
     if (productData) {
@@ -95,7 +103,10 @@ class Scanner extends Component {
       return Navigation.push(this.props.componentId, {
         component: {
           name: 'Results',
-          passProps: {barcode, productData}
+          passProps: {barcode, productData},
+          options: {
+            bottomTabs: { visible: false, drawBehind: true, animate: true }
+          }
         }
       })
     }
@@ -107,7 +118,6 @@ class Scanner extends Component {
   }
   
   render() {
-    console.log(this.props, 'fsdfsd')
     return (
       <View style={styles.container}>
         <RNCamera
@@ -137,7 +147,7 @@ class Scanner extends Component {
           type={this.state.camera.type}
         >
           <Image
-            source={BG}
+            source={require('../../../assets/scanner_background.png')}
             style={{
               flex: 1,
               width: '100%',
@@ -165,7 +175,6 @@ class Scanner extends Component {
           >
             Fit the barcode in the frame to scan.
           </Text>
-          <TouchableOpacity style={{position: 'absolute', right: 5}} onPress={this.logout}><Text style={{color: 'white'}}>Logout</Text></TouchableOpacity>
         </RNCamera>
       </View>
     );
