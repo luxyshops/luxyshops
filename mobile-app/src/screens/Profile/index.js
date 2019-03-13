@@ -21,7 +21,9 @@ class Profile extends Component {
   render() {
     return (
       <View style={{height: '100%'}}>
-        <Image source={require('../../../assets/profile_picture.png')} style={{width: rw(100), height: rh(50), position: 'absolute', top: 0}}  />
+        <View style={{width: '100%', display: 'flex', alignItems: 'flex-end', position: 'absolute', top: 0}}>
+          <Image source={require('../../../assets/profile_picture.png')} style={{width: rw(80), height: rh(44)}}  />
+        </View>
         <View style={{paddingHorizontal: 20, marginTop: rh(40)}}>
           <Text style={{fontWeight: 'bold', fontSize: 25}}>Profile</Text>
           <Text style={{fontWeight: 'bold', fontSize: 25}}>Information</Text>

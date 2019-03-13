@@ -334,11 +334,73 @@ class Results extends React.Component {
     return this.props.firebase.remove(path)
   }
   
+  renderHeaderImage = (type) => {
+    switch (type) {
+      case 'shoes':
+        return (
+          <Image
+            style={{
+              height: 100,
+              flex: 2
+            }}
+            resizeMode="contain"
+            source={require('../../../assets/shoe_icon.png')}
+          />
+        )
+      case 'kitchen':
+      case 'food':
+        return (
+          <Image
+            style={{
+              height: 100,
+              flex: 2
+            }}
+            resizeMode="contain"
+            source={require('../../../assets/food_icon.png')}
+          />
+        )
+      case 'toy':
+        return (
+          <Image
+            style={{
+              height: 100,
+              flex: 2
+            }}
+            resizeMode="contain"
+            source={require('../../../assets/toy_icon.png')}
+          />
+        )
+      case 'interior':
+        return (
+          <Image
+            style={{
+              height: 100,
+              flex: 2
+            }}
+            resizeMode="contain"
+            source={require('../../../assets/interiour_icon.png')}
+          />
+        )
+      default:
+        return (
+          <Image
+            style={{
+              height: 100,
+              flex: 2
+            }}
+            resizeMode="contain"
+            source={require('../../../assets/clothing_icon.png')}
+          />
+        )
+    }
+  }
+  
   renderHeaderCard = () => {
-    const {bar_codes} = this.props.productData;
+    const {bar_codes, type} = this.props.productData;
     const isSaved = _.keys(this.props.savedItems).find((itemKey) => {
       return bar_codes.includes(_.get(this.props.savedItems, `${itemKey}.barcode`));
     });
+    console.log('props', this.props)
     return (
       <ElevatedView
         elevation={3}
@@ -350,14 +412,7 @@ class Results extends React.Component {
           backgroundColor: 'white'
         }}
       >
-        <Image
-          style={{
-            height: 100,
-            flex: 2
-          }}
-          resizeMode="contain"
-          source={require('../../../assets/tshirt.jpg')}
-        />
+        {this.renderHeaderImage(type)}
         <View style={{flex: 3, display: 'flex', justifyContent: 'space-evenly'}}>
           <Text style={{fontSize: 17, fontWeight: '300'}}>{this.props.productData.name}</Text>
           {this.props.productData.style && (
