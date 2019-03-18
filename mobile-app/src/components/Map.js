@@ -9,7 +9,11 @@ import UnselectedPin from "../../pin.png";
 import AvailableColors from '../screens/Results/components/AvailableColors'
 import _ from "lodash";
 import Cross from "../../cross.png";
-import {responsiveFontSize as rf, responsiveHeight as rh} from "react-native-responsive-dimensions";
+import {
+  responsiveFontSize as rf,
+  responsiveHeight as rh,
+  responsiveWidth as rw
+} from "react-native-responsive-dimensions";
 import styled from "styled-components";
 import HeaderCard from '../components/HeaderCard';
 import {Navigation} from "react-native-navigation";
@@ -220,31 +224,38 @@ class Map extends Component {
   }
   
   markers = (onlyLocation = false) => {
+    console.log('this,props', this.props)
     return this.props.productData.stores_in_stock.map((store) => {
       const {location, short_name, placeId, name,
         address, sizes_available, colors_available, variations_available, working_hours} = store;
       if (onlyLocation) {
+        console.log('here')
         return {
           latitude: location.lat,
           longitude: location.lng,
         }
       }
-      return {
-        fullName: name,
-        address,
-        availableSizes: sizes_available,
-        availableColors: colors_available,
-        availableVarieties: variations_available,
-        selected: false,
-        name: short_name,
-        placeId,
-        workingHours: working_hours,
-        location: {
-          latitude: location.lat,
-          longitude: location.lng,
+      console.log('sizes_available', sizes_available, 'sizes_to_display', this.props.sizes_to_display)
+      if (!sizes_available || sizes_available.some(r=> this.props.sizes_to_display.indexOf(r) >= 0)) {
+        console.log('here', store)
+        return {
+          fullName: name,
+          address,
+          availableSizes: sizes_available,
+          availableColors: colors_available,
+          availableVarieties: variations_available,
+          selected: false,
+          name: short_name,
+          placeId,
+          workingHours: working_hours,
+          location: {
+            latitude: location.lat,
+            longitude: location.lng,
+          }
         }
       }
-    });
+      return null;
+    }).filter(store => store);
   }
   
   onMarkerPress = (marker) => {
@@ -264,7 +275,7 @@ class Map extends Component {
   }
   
   renderHeaderCard = () => {
-    const {productData} = this.props;
+    const {productData, onItemRemove, onItemAdd} = this.props;
     const {bar_codes} = productData;
     const isSaved = _.keys(this.props.savedItems).find((itemKey) => {
       return bar_codes.includes(_.get(this.props.savedItems, `${itemKey}.barcode`));
@@ -273,6 +284,8 @@ class Map extends Component {
     return (
       <HeaderCard
         isSaved={isSaved}
+        onItemRemove={onItemRemove}
+        onItemAdd={onItemAdd}
         {...productData}
       />
     )
@@ -320,11 +333,49 @@ class Map extends Component {
           }}
         >
           <ElevatedView style={{paddingHorizontal: 20,
-            paddingTop: 70,
+            paddingTop: 80,
             paddingBottom: 50,
             backgroundColor: 'white'}} elevation={5}>
             {this.renderHeaderCard()}
-            <Text style={{fontSize: 15}}>Available at these locations: </Text>
+            <View style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
+              <Text style={{marginVertical: 20, fontSize: 17}}>Available at these locations: </Text>
+              {_.get(this.props, 'productData.sizes_reference', null) && (
+                <TouchableOpacity
+                  onPress={() => {
+                    this.props.goToFilters({
+                      onApply: () => this.setState({markers: this.markers()})
+                    })
+                    // console.log('this.props', this.props)
+                    // return Navigation.push(this.props.componentId, {
+                    //   component: {
+                    //     name: 'Filters',
+                    //     passProps: {
+                    //       sizes_reference: this.props.sizes_reference,
+                    //       sizes_to_display: this.props.sizes_to_display,
+                    //       allUnChecked: this.props.allFiltersUnChecked,
+                    //       onApply: this.props.applyNewFilters,
+                    //       onReset: () => this.props.onReset
+                    //     },
+                    //     options: {
+                    //       bottomTabs: { visible: false, drawBehind: true, animate: true }
+                    //     }
+                    //   },
+                    // }).then(() => {
+                    //   if (this.props.allFiltersUnChecked) {
+                    //     return this.setState({allFiltersUnChecked: false})
+                    //   }
+                    // })
+                  }}
+                  style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}
+                >
+                  <Image
+                    source={require('../../assets/filters_icon.png')}
+                    style={{width: rh(3), height: rh(3), marginRight: rw(3)}}
+                  />
+                  <Text style={{color: '#175641', fontSize: rf(2)}}>Filters</Text>
+                </TouchableOpacity>
+              )}
+            </View>
           </ElevatedView>
         </Animated.View>
         <View style={{flex: 1}}>

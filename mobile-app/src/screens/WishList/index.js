@@ -166,7 +166,7 @@ class WishList extends Component {
       <ScrollView
         style={{height: '100%', paddingHorizontal: 20, paddingTop: 60}}
       >
-        <View style={{marginBottom: 40}}>
+        <View style={{marginBottom: 30}}>
           <Text style={{fontWeight: 'bold', fontSize: 23, marginBottom: 10}}>Hello, {userName}</Text>
           <Text style={{fontSize: 16, marginBottom: 5, color: '#5B5B5B'}}>You can save the items that you like to</Text>
           <Text style={{fontSize: 16, marginBottom: 5, color: '#5B5B5B'}}>return to them in the future. Just scan </Text>

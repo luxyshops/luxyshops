@@ -31,9 +31,9 @@ class ScannerIntro extends Component {
       <View style={{height: '100%', paddingTop: 60}}>
         <View style={{marginBottom: 30, paddingHorizontal: 20}}>
           <Text style={{fontWeight: 'bold', fontSize: 23, marginBottom: 10}}>Let's scan</Text>
-          <Text style={{fontSize: 16, color: '#5B5B5B'}}>Press Scan button to simply scan the</Text>
-          <Text style={{fontSize: 16, color: '#5B5B5B'}}>barcode of the item you like to see</Text>
-          <Text style={{fontSize: 16, color: '#5B5B5B'}}>what's available around.</Text>
+          <Text style={{fontSize: 16,marginBottom: 5, color: '#5B5B5B'}}>Press Scan button to simply scan the</Text>
+          <Text style={{fontSize: 16, marginBottom: 5, color: '#5B5B5B'}}>barcode of the item you like to see</Text>
+          <Text style={{fontSize: 16, marginBottom: 5, color: '#5B5B5B'}}>what's available around.</Text>
         </View>
         <View style={{width: '100%', display: 'flex', alignItems: 'center'}}>
           <Image

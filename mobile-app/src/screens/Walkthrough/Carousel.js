@@ -32,9 +32,9 @@ class CarouselSlide extends Component {
           shadowOffset: { width: 0, height: 0 },
           shadowOpacity: 1.0,
           shadowRadius: 5,
-          shadowColor: '#61CA93',
+          shadowColor: '#005841',
           marginHorizontal: 8,
-          backgroundColor: '#61CA93'
+          backgroundColor: '#005841'
         }}
         inactiveDotStyle={{
           shadowOpacity: 0,

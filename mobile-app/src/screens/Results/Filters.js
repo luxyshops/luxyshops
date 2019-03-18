@@ -5,6 +5,7 @@ import { compose } from 'redux'
 import { firebaseConnect, getVal } from 'react-redux-firebase'
 import {StyledButton} from "../SignIn";
 import {responsiveHeight as rh, responsiveWidth as rw, responsiveFontSize as rf} from "react-native-responsive-dimensions";
+import {Navigation} from "react-native-navigation";
 
 class Filters extends Component {
   static get options() {
@@ -14,21 +15,27 @@ class Filters extends Component {
           color: "black",
           title: ''
         },
-        drawBehind: true,
-        transparent: true,
-        translucent: true,
+        rightButtons: [
+          {
+            id: 'resetFilters',
+            text: 'Reset',
+            color: '#005840'
+          }
+        ],
+        transparent: false,
+        translucent: false,
         elevation: 0,
         title: {
           text: 'Filters',
           fontSize: 17,
         },
-        hideOnScroll: true,
-        // animate: true,
-        // visible: true,
-        // drawBehind: true,
+        hideOnScroll: false,
+        animate: false,
+        visible: true,
+        drawBehind: true,
         noBorder: true,
         background: {
-          color: 'transparent',
+          color: 'white',
         }
       }
     };
@@ -36,17 +43,38 @@ class Filters extends Component {
   
   constructor(props) {
     super(props);
-    const {sizes_reference, sizes_to_display} = props;
+    const {sizes_reference, sizes_to_display, allUnChecked} = props;
+    console.log('sizes_reference', sizes_reference, 'sizes_to_display', sizes_to_display)
     const options = sizes_reference.map((size) => {
       return ({
         title: size,
-        checked: Boolean(sizes_to_display.find(sizeName => sizeName === size)),
+        checked: allUnChecked ? false : Boolean(sizes_to_display.find(sizeName => sizeName === size)),
       })
     });
+    console.log('options', options)
+    Navigation.events().bindComponent(this);
     
     this.state = {
       options,
     }
+  }
+  
+  navigationButtonPressed({ buttonId }) {
+    if (buttonId === 'resetFilters') {
+      console.log('fsdfsdf', this.props)
+      const {sizes_reference, onApply, onReset} = this.props
+      onReset()
+      this.setState({
+        options: sizes_reference.map((size) => {
+          return ({
+            title: size,
+            checked: false
+          })
+        })
+      })
+      return onApply(sizes_reference)
+    }
+    return null;
   }
   
   onItemRemove = (savedKey) => {
@@ -89,6 +117,18 @@ class Filters extends Component {
     );
   }
   
+  onApply = () => {
+    const {sizes_reference, onApply, onReset} = this.props
+    const {options} = this.state;
+    if (options.filter(({checked}) => checked).length === 0) {
+      onReset()
+      Navigation.pop(this.props.componentId)
+      return onApply(sizes_reference)
+    }
+    Navigation.pop(this.props.componentId)
+    return onApply(options.filter(({checked}) => checked).map(({title}) => title))
+  }
+  
   render () {
     return (
       <ScrollView
@@ -101,7 +141,7 @@ class Filters extends Component {
         </View>
         {this.renderCheckMarks()}
         <View style={{marginBottom: rh(15)}}>
-          <StyledButton onPress={() => this.props.onApply(this.state.options.filter(({checked}) => checked).map(({title}) => title))}>
+          <StyledButton onPress={this.onApply}>
             <Text style={{color: 'white', paddingVertical: 15, textAlign: 'center'}}>
               Apply
             </Text>

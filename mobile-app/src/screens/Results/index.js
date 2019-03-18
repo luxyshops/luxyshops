@@ -153,6 +153,7 @@ class Results extends React.Component {
       showList: true,
       markers: this.markers(),
       userLocation: null,
+      allFiltersUnChecked: true,
       sizesToDisplay: props.productData.sizes_reference,
     };
     
@@ -335,14 +336,16 @@ class Results extends React.Component {
   }
   
   renderHeaderImage = (type) => {
+    const imageStyles = {
+      marginRight: rh(2),
+      height: 100,
+      flex: 2
+    }
     switch (type) {
       case 'shoes':
         return (
           <Image
-            style={{
-              height: 100,
-              flex: 2
-            }}
+            style={imageStyles}
             resizeMode="contain"
             source={require('../../../assets/shoe_icon.png')}
           />
@@ -351,10 +354,7 @@ class Results extends React.Component {
       case 'food':
         return (
           <Image
-            style={{
-              height: 100,
-              flex: 2
-            }}
+            style={imageStyles}
             resizeMode="contain"
             source={require('../../../assets/food_icon.png')}
           />
@@ -362,10 +362,7 @@ class Results extends React.Component {
       case 'toy':
         return (
           <Image
-            style={{
-              height: 100,
-              flex: 2
-            }}
+            style={imageStyles}
             resizeMode="contain"
             source={require('../../../assets/toy_icon.png')}
           />
@@ -373,10 +370,7 @@ class Results extends React.Component {
       case 'interior':
         return (
           <Image
-            style={{
-              height: 100,
-              flex: 2
-            }}
+            style={imageStyles}
             resizeMode="contain"
             source={require('../../../assets/interiour_icon.png')}
           />
@@ -384,10 +378,7 @@ class Results extends React.Component {
       default:
         return (
           <Image
-            style={{
-              height: 100,
-              flex: 2
-            }}
+            style={imageStyles}
             resizeMode="contain"
             source={require('../../../assets/clothing_icon.png')}
           />
@@ -400,12 +391,11 @@ class Results extends React.Component {
     const isSaved = _.keys(this.props.savedItems).find((itemKey) => {
       return bar_codes.includes(_.get(this.props.savedItems, `${itemKey}.barcode`));
     });
-    console.log('props', this.props)
     return (
       <ElevatedView
         elevation={3}
         style={{
-          padding: 10,
+          padding: rh(2),
           borderRadius: 5,
           display: 'flex',
           flexDirection: 'row',
@@ -463,6 +453,7 @@ class Results extends React.Component {
   }
   
   applyNewFilters = (newSizeRange) => {
+    console.log('newSizeRange', newSizeRange)
     this.setState({sizesToDisplay: newSizeRange})
   }
   
@@ -488,12 +479,18 @@ class Results extends React.Component {
                      passProps: {
                        sizes_reference: _.get(this.props, 'productData.sizes_reference'),
                        sizes_to_display: this.state.sizesToDisplay,
-                       onApply: this.applyNewFilters
+                       allUnChecked: this.state.allFiltersUnChecked,
+                       onApply: this.applyNewFilters,
+                       onReset: () => this.setState({allFiltersUnChecked: true})
                      },
                      options: {
                        bottomTabs: { visible: false, drawBehind: true, animate: true }
                      }
                    },
+                 }).then(() => {
+                   if (this.state.allFiltersUnChecked) {
+                     return this.setState({allFiltersUnChecked: false})
+                   }
                  })
                }}
                style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}
@@ -692,15 +689,50 @@ class Results extends React.Component {
     )
   }
   
+  goToFilters = ({onApply: applyFiltersToMap}) => {
+    return Navigation.push(this.props.componentId, {
+      component: {
+        name: 'Filters',
+        passProps: {
+          sizes_reference: _.get(this.props, 'productData.sizes_reference'),
+          sizes_to_display: this.state.sizesToDisplay,
+          allUnChecked: this.state.allFiltersUnChecked,
+          onApply: (sizeref) => {
+            this.applyNewFilters(sizeref);
+            applyFiltersToMap();
+          },
+          onReset: () => {
+            this.setState({allFiltersUnChecked: true})
+            applyFiltersToMap()
+          }
+        },
+        options: {
+          bottomTabs: { visible: false, drawBehind: true, animate: true }
+        }
+      },
+    }).then(() => {
+      if (this.state.allFiltersUnChecked) {
+        return this.setState({allFiltersUnChecked: false})
+      }
+    })
+  }
+  
   render() {
     if (this.state.showList) {
       return this.renderList();
     }
     return (
       <Map
+        savedItems={this.props.savedItems}
+        goToFilters={this.goToFilters}
         onItemAdd={this.onItemAdd}
         onItemRemove={(savedKey) => this.onItemRemove(savedKey)}
         productData={this.props.productData}
+        applyNewFilters={this.applyNewFilters}
+        onReset={() => this.setState({allFiltersUnChecked: true})}
+        allUnChecked={this.state.allFiltersUnChecked}
+        sizes_to_display={this.state.sizesToDisplay}
+        sizes_reference={_.get(this.props, 'productData.sizes_reference')}
       />
     )
   }
