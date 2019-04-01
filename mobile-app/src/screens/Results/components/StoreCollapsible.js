@@ -5,8 +5,37 @@ import styled from 'styled-components';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Collapsible from 'react-native-collapsible';
 import {createOpenLink} from 'react-native-open-maps';
+import getDirections from 'react-native-google-maps-directions'
 
 import AvailableColors from './AvailableColors'
+
+function haversineDistance(coords1, coords2, isMiles) {
+  function toRad(x) {
+    return x * Math.PI / 180;
+  }
+  
+  var lon1 = coords1[0];
+  var lat1 = coords1[1];
+  
+  var lon2 = coords2[0];
+  var lat2 = coords2[1];
+  
+  var R = 6371; // km
+  
+  var x1 = lat2 - lat1;
+  var dLat = toRad(x1);
+  var x2 = lon2 - lon1;
+  var dLon = toRad(x2)
+  var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+    Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  var d = R * c;
+  
+  if(isMiles) d /= 1.60934;
+  
+  return Math.round(d * 100) / 100;
+}
 
 const ElevatedWrapper = styled(ElevatedView)`
   margin-bottom: 10px;
@@ -80,12 +109,39 @@ const DirectionsButtonText = styled(Text)`
 `
 
 class StoreCollapsible extends Component {
+  
+  handleGetDirections = () => {
+    const {location: {lat, lng}, name, address} = this.props;
+  
+    const data = {
+      source: {
+        latitude: this.props.userLocation.latitude,
+        longitude: this.props.userLocation.longitude
+      },
+      destination: {
+        latitude: lat,
+        longitude: lng
+      },
+      params: [
+        {
+          key: "travelmode",
+          value: "walking"        // may be "walking", "bicycling" or "transit" as well
+        },
+        {
+          key: "dir_action",
+          value: "navigate"       // this instantly initializes navigation using the given travel mode
+        }
+      ]
+    }
+    
+    getDirections(data)
+  }
   renderDirectionsButton = () => {
     const {location: {lat, lng}, name, address} = this.props;
     return (
       <DirectionsButtonWrapper>
         <DirectionsButtonTouchable
-          onPress={createOpenLink({latitude: lat, longitude: lng, provider: 'google'})}
+          onPress={this.handleGetDirections}
         >
           <Image
             source={require('../../../../assets/search.png')}
@@ -152,16 +208,29 @@ class StoreCollapsible extends Component {
     return this.renderOptions(type)
   }
   
+  renderDistance = () => {
+    const {userLocation, location: storeLocation} = this.props;
+    if (userLocation) {
+      return (
+        <Text style={{fontSize: 12, color: '#C4CCD7', position: 'absolute', right: 2, top: 2}}>
+          {haversineDistance([userLocation.latitude, userLocation.longitude], [storeLocation.lat, storeLocation.lng], false)} km
+        </Text>
+      )
+    }
+    return null;
+  }
+  
   render() {
     const {
       name, address,
-      colors_available, onCollapse, collapsed,
+      colors_available, onCollapse, collapsed, userLocation, location: storeLocation
     } = this.props;
     return (
       <ElevatedWrapper elevation={3}>
         <UnCollapsiblePartWrapper>
+          {this.renderDistance()}
           <ProductDataWrapper>
-            <StoreName>{name}</StoreName>
+              <StoreName>{name}</StoreName>
             <StoreAddress>{address}</StoreAddress>
             {this.renderSizes()}
             <AvailableColors colors={colors_available} />

@@ -22,9 +22,9 @@ const { width, height } = Dimensions.get('window');
 
 
 const ASPECT_RATIO = width / height;
-const LATITUDE = 43.6532;
-const LONGITUDE = -79.3832;
-const LATITUDE_DELTA = 0.0922;
+const LATITUDE = 43.6696817;
+const LONGITUDE = -79.3387563;
+const LATITUDE_DELTA = 0.1922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 const DEFAULT_PADDING = { top: 60, right: 60, bottom: 60, left: 60 };
 
@@ -408,9 +408,11 @@ class Map extends Component {
                     resizeMode="contain"
                     source={marker.selected ? SelectedPin : UnselectedPin}
                   />
-                  <Text
-                    style={{flex: 1, fontSize: 10, color: marker.selected ? '#CCA600' : '#005840', textAlign: 'center'}}
-                  >{marker.name}</Text>
+                  <View style={{flexDirection:'row'}}>
+                    <Text
+                      style={{fontSize: 10, color: marker.selected ? '#CCA600' : '#005840', textAlign: 'center', flex: 1, flexWrap: 'wrap'}}
+                    >{marker.name}</Text>
+                  </View>
                 </View>
               </Marker>
             ))}

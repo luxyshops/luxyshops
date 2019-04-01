@@ -4,6 +4,18 @@
     "name" : "Bowl",
     "price" : "$39.99",
     "stores_in_stock" : [ {
+      "address" : "Marshalls, 382 Yonge St, Toronto, ON M5B 1S8",
+      "colors_available" : [ "white", "#D7D8DA", "#36465A", "#BB8969" ],
+      "location" : {
+        "lat" : 43.65910779999999,
+        "lng" : -79.3825682
+      },
+      "name" : "Marshalls - Shops At Aura",
+      "placeId" : "ChIJndEqZLU0K4gRRIrnrk61EU4",
+      "short_name" : "Marshalls - Aura",
+      "variations_available" : [ "var 1", "var 2", "var 3" ],
+      "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
+    }, {
       "address" : "900 Dufferin St W Toronto, ON M6H 4A9",
       "colors_available" : [ "white", "#D7D8DA", "#36465A", "#BB8969" ],
       "location" : {
@@ -12,8 +24,20 @@
       },
       "name" : "Marshalls - Dufferin Mall",
       "placeId" : "ChIJD9aQMls0K4gR7np7iQxTntg",
-      "short_name" : "Dufferin",
+      "short_name" : "Marshalls - Dufferin",
       "variations_available" : [ "var 1", "var 2", "var 3" ],
+      "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
+    }, {
+      "address" : "1000 Gerrard St E, Toronto, ON M4M 3G6",
+      "colors_available" : [ "white", "#D7D8DA", "#36465A", "#BB8969" ],
+      "location" : {
+        "lat" : 43.6696817,
+        "lng" : -79.3387563
+      },
+      "name" : "Winners - Gerrard Square Shopping Centre",
+      "placeId" : "ChIJ_22gMnnL1IkRCT3NDWIPHm4",
+      "short_name" : "Winners - Gerrard",
+      "sizes_available" : [ "S", "M" ],
       "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
     }, {
       "address" : "585 Queen St W, Toronto ON M5V 2B7",
@@ -24,7 +48,7 @@
       },
       "name" : "Winners - Queen St W",
       "placeId" : "ChIJx7uZld00K4gR7WB03kph7o8",
-      "short_name" : "Winners",
+      "short_name" : "Winners - Queen",
       "variations_available" : [ "var 1", "var 2" ],
       "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
     } ],
@@ -44,8 +68,32 @@
       },
       "name" : "Marshalls - Dufferin Mall",
       "placeId" : "ChIJD9aQMls0K4gR7np7iQxTntg",
-      "short_name" : "Dufferin",
+      "short_name" : "Marshalls - Dufferin",
       "variations_available" : [ "var 1", "var 2", "var 3" ],
+      "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
+    }, {
+      "address" : "Marshalls, 382 Yonge St, Toronto, ON M5B 1S8",
+      "colors_available" : [ "white", "#D7D8DA", "#36465A", "#BB8969" ],
+      "location" : {
+        "lat" : 43.65910779999999,
+        "lng" : -79.3825682
+      },
+      "name" : "Marshalls - Shops At Aura",
+      "placeId" : "ChIJndEqZLU0K4gRRIrnrk61EU4",
+      "short_name" : "Marshalls - Aura",
+      "variations_available" : [ "var 1", "var 2", "var 3" ],
+      "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
+    }, {
+      "address" : "1000 Gerrard St E, Toronto, ON M4M 3G6",
+      "colors_available" : [ "white", "#D7D8DA", "#36465A", "#BB8969" ],
+      "location" : {
+        "lat" : 43.6696817,
+        "lng" : -79.3387563
+      },
+      "name" : "Winners - Gerrard Square Shopping Centre",
+      "placeId" : "ChIJ_22gMnnL1IkRCT3NDWIPHm4",
+      "short_name" : "Winners - Gerrard",
+      "sizes_available" : [ "S", "M" ],
       "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
     }, {
       "address" : "585 Queen St W, Toronto ON M5V 2B7",
@@ -56,7 +104,7 @@
       },
       "name" : "Winners - Queen St W",
       "placeId" : "ChIJx7uZld00K4gR7WB03kph7o8",
-      "short_name" : "Winners",
+      "short_name" : "Winners - Queen",
       "variations_available" : [ "var 1", "var 2", "var 3" ],
       "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
     } ],
@@ -76,7 +124,19 @@
       },
       "name" : "Marshalls - Dufferin Mall",
       "placeId" : "ChIJD9aQMls0K4gR7np7iQxTntg",
-      "short_name" : "Dufferin",
+      "short_name" : "Marshalls - Dufferin",
+      "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
+    }, {
+      "address" : "Marshalls, 382 Yonge St, Toronto, ON M5B 1S8",
+      "colors_available" : [ "white", "#D7D8DA", "#36465A", "#BB8969" ],
+      "location" : {
+        "lat" : 43.65910779999999,
+        "lng" : -79.3825682
+      },
+      "name" : "Marshalls - Shops At Aura",
+      "placeId" : "ChIJndEqZLU0K4gRRIrnrk61EU4",
+      "short_name" : "Marshalls - Aura",
+      "variations_available" : [ "var 1", "var 2", "var 3" ],
       "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
     }, {
       "address" : "585 Queen St W, Toronto ON M5V 2B7",
@@ -87,7 +147,7 @@
       },
       "name" : "Winners - Queen St W",
       "placeId" : "ChIJx7uZld00K4gR7WB03kph7o8",
-      "short_name" : "Winners",
+      "short_name" : "Winners - Queen",
       "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
     } ],
     "type" : "food"
@@ -104,8 +164,32 @@
       },
       "name" : "Marshalls - Dufferin Mall",
       "placeId" : "ChIJD9aQMls0K4gR7np7iQxTntg",
-      "short_name" : "Dufferin",
+      "short_name" : "Marshalls - Dufferin",
       "variations_available" : [ "var 1" ],
+      "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
+    }, {
+      "address" : "Marshalls, 382 Yonge St, Toronto, ON M5B 1S8",
+      "colors_available" : [ "white", "#D7D8DA", "#36465A", "#BB8969" ],
+      "location" : {
+        "lat" : 43.65910779999999,
+        "lng" : -79.3825682
+      },
+      "name" : "Marshalls - Shops At Aura",
+      "placeId" : "ChIJndEqZLU0K4gRRIrnrk61EU4",
+      "short_name" : "Marshalls - Aura",
+      "variations_available" : [ "var 1", "var 2", "var 3" ],
+      "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
+    }, {
+      "address" : "1000 Gerrard St E, Toronto, ON M4M 3G6",
+      "colors_available" : [ "white", "#D7D8DA", "#36465A", "#BB8969" ],
+      "location" : {
+        "lat" : 43.6696817,
+        "lng" : -79.3387563
+      },
+      "name" : "Winners - Gerrard Square Shopping Centre",
+      "placeId" : "ChIJ_22gMnnL1IkRCT3NDWIPHm4",
+      "short_name" : "Winners - Gerrard",
+      "sizes_available" : [ "S", "M" ],
       "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
     }, {
       "address" : "585 Queen St W, Toronto ON M5V 2B7",
@@ -115,7 +199,7 @@
       },
       "name" : "Winners - Queen St W",
       "placeId" : "ChIJx7uZld00K4gR7WB03kph7o8",
-      "short_name" : "Winners",
+      "short_name" : "Winners - Queen",
       "variations_available" : [ "var 1", "var 2", "var 3" ],
       "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
     } ],
@@ -134,7 +218,19 @@
       },
       "name" : "Marshalls - Dufferin Mall",
       "placeId" : "ChIJD9aQMls0K4gR7np7iQxTntg",
-      "short_name" : "Dufferin",
+      "short_name" : "Marshalls - Dufferin",
+      "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
+    }, {
+      "address" : "Marshalls, 382 Yonge St, Toronto, ON M5B 1S8",
+      "colors_available" : [ "white", "#D7D8DA", "#36465A", "#BB8969" ],
+      "location" : {
+        "lat" : 43.65910779999999,
+        "lng" : -79.3825682
+      },
+      "name" : "Marshalls - Shops At Aura",
+      "placeId" : "ChIJndEqZLU0K4gRRIrnrk61EU4",
+      "short_name" : "Marshalls - Aura",
+      "variations_available" : [ "var 1", "var 2", "var 3" ],
       "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
     }, {
       "address" : "585 Queen St W, Toronto ON M5V 2B7",
@@ -145,7 +241,7 @@
       },
       "name" : "Winners - Queen St W",
       "placeId" : "ChIJx7uZld00K4gR7WB03kph7o8",
-      "short_name" : "Winners",
+      "short_name" : "Winners - Queen",
       "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
     } ],
     "type" : "interior"
@@ -162,7 +258,7 @@
       },
       "name" : "Marshalls - Dufferin Mall",
       "placeId" : "ChIJD9aQMls0K4gR7np7iQxTntg",
-      "short_name" : "Dufferin",
+      "short_name" : "Marshalls - Dufferin",
       "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
     }, {
       "address" : "585 Queen St W, Toronto ON M5V 2B7",
@@ -172,7 +268,19 @@
       },
       "name" : "Winners - Queen St W",
       "placeId" : "ChIJx7uZld00K4gR7WB03kph7o8",
-      "short_name" : "Winners",
+      "short_name" : "Winners - Queen",
+      "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
+    }, {
+      "address" : "Marshalls, 382 Yonge St, Toronto, ON M5B 1S8",
+      "colors_available" : [ "white", "#D7D8DA", "#36465A", "#BB8969" ],
+      "location" : {
+        "lat" : 43.65910779999999,
+        "lng" : -79.3825682
+      },
+      "name" : "Marshalls - Shops At Aura",
+      "placeId" : "ChIJndEqZLU0K4gRRIrnrk61EU4",
+      "short_name" : "Marshalls - Aura",
+      "variations_available" : [ "var 1", "var 2", "var 3" ],
       "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
     } ],
     "type" : "toy"
@@ -191,8 +299,20 @@
       },
       "name" : "Marshalls - Dufferin Mall",
       "placeId" : "ChIJD9aQMls0K4gR7np7iQxTntg",
-      "short_name" : "Dufferin",
+      "short_name" : "Marshalls - Dufferin",
       "sizes_available" : [ "32", "33", "35", "41" ],
+      "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
+    }, {
+      "address" : "Marshalls, 382 Yonge St, Toronto, ON M5B 1S8",
+      "colors_available" : [ "white", "#D7D8DA", "#36465A", "#BB8969" ],
+      "location" : {
+        "lat" : 43.65910779999999,
+        "lng" : -79.3825682
+      },
+      "name" : "Marshalls - Shops At Aura",
+      "placeId" : "ChIJndEqZLU0K4gRRIrnrk61EU4",
+      "short_name" : "Marshalls - Aura",
+      "variations_available" : [ "var 1", "var 2", "var 3" ],
       "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
     }, {
       "address" : "585 Queen St W, Toronto ON M5V 2B7",
@@ -203,7 +323,7 @@
       },
       "name" : "Winners - Queen St W",
       "placeId" : "ChIJx7uZld00K4gR7WB03kph7o8",
-      "short_name" : "Winners",
+      "short_name" : "Winners - Queen",
       "sizes_available" : [ "32", "33", "35", "45", "47" ],
       "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
     } ],
@@ -223,7 +343,30 @@
       },
       "name" : "Marshalls - Dufferin Mall",
       "placeId" : "ChIJD9aQMls0K4gR7np7iQxTntg",
-      "short_name" : "Dufferin",
+      "short_name" : "Marshalls - Dufferin",
+      "sizes_available" : [ "S", "M" ],
+      "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
+    }, {
+      "address" : "Marshalls, 382 Yonge St, Toronto, ON M5B 1S8",
+      "colors_available" : [ "white", "#D7D8DA", "#36465A", "#BB8969" ],
+      "location" : {
+        "lat" : 43.65910779999999,
+        "lng" : -79.3825682
+      },
+      "name" : "Marshalls - Shops At Aura",
+      "placeId" : "ChIJndEqZLU0K4gRRIrnrk61EU4",
+      "short_name" : "Marshalls - Aura",
+      "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
+    }, {
+      "address" : "1000 Gerrard St E, Toronto, ON M4M 3G6",
+      "colors_available" : [ "white", "#D7D8DA", "#36465A", "#BB8969" ],
+      "location" : {
+        "lat" : 43.6696817,
+        "lng" : -79.3387563
+      },
+      "name" : "Winners - Gerrard Square Shopping Centre",
+      "placeId" : "ChIJ_22gMnnL1IkRCT3NDWIPHm4",
+      "short_name" : "Winners - Gerrard",
       "sizes_available" : [ "S", "M" ],
       "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
     }, {
@@ -235,7 +378,7 @@
       },
       "name" : "Winners - Queen St W",
       "placeId" : "ChIJx7uZld00K4gR7WB03kph7o8",
-      "short_name" : "Winners",
+      "short_name" : "Winners - Queen",
       "sizes_available" : [ "XS", "M", "XXL" ],
       "working_hours" : [ "Mon - Fri 9:30 AM - 9:00 PM", "Sat 9:00 AM - 9:00 PM", "Sun 10:00 AM - 6:00 PM" ]
     } ],
