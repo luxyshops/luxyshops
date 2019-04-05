@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {TextInput as RNTExtInput, Text, View, Image} from 'react-native';
+import {TextInput as RNTExtInput, Animated, View, Image} from 'react-native';
 import styled from "styled-components";
 import {
   responsiveFontSize as rf,
@@ -36,10 +36,25 @@ class TextInput extends Component {
   
   static propTypes = {};
   
-  state = {};
+  constructor(props) {
+    super(props);
+    this._animatedIsFocused = new Animated.Value(props.input.value === '' ? 0 : 1);
+    this.state = {isFocused: false}
+  }
+  
+  componentDidMount() {
+    this._animatedIsFocused = new Animated.Value(this.props.input.value === '' ? 0 : 1);
+  }
+  
+  componentDidUpdate() {
+    Animated.timing(this._animatedIsFocused, {
+      toValue: (this.state.isFocused || this.props.input.value !== '') ? 1 : 0,
+      duration: 200,
+    }).start();
+  }
   
   renderError = () => {
-    const {meta: {pristine, active, error, touched}} = this.props;
+    const {meta: {pristine, active, error, touched}, noErrorValidation} = this.props;
     if ((!pristine || touched) && !active && error) {
       return (
         <ErrorText>{error}</ErrorText>
@@ -49,8 +64,8 @@ class TextInput extends Component {
   };
   
   renderIcon = () => {
-    const {meta} = this.props;
-  
+    const {meta, noErrorValidation} = this.props;
+    
     if (!meta.pristine && !meta.error) {
       return (
         <Image
@@ -71,28 +86,62 @@ class TextInput extends Component {
     return null;
   }
   
+  onBlur = () => {
+    this.setState({isFocused: false})
+    this.props.input.onBlur();
+  }
+  
+  onFocus = () => {
+    this.setState({isFocused: true})
+    this.props.input.onFocus();
+  }
+  
   render () {
-    const { input, meta, ...inputProps } = this.props;
+    const { input, meta, label, noErrorValidation, ...inputProps } = this.props;
     let borderColor = '#C5CCD6';
-    if (!meta.pristine && !meta.active && meta.error) {
-      borderColor = '#FF3B30';
+    if (!noErrorValidation) {
+      if (!meta.pristine && !meta.active && meta.error) {
+        borderColor = '#FF3B30';
+      }
+      if (!meta.pristine && !meta.error) {
+        borderColor = '#005840';
+      }
     }
-    if (!meta.pristine && !meta.error) {
-      borderColor = '#7CC797';
-    }
+  
+    const labelStyle = {
+      position: 'absolute',
+      left: rw(3),
+      top: this._animatedIsFocused.interpolate({
+        inputRange: [0, 1],
+        outputRange: [18, 0],
+      }),
+      fontSize: this._animatedIsFocused.interpolate({
+        inputRange: [0, 1],
+        outputRange: [rf(2), rf(1.7)],
+      }),
+      color: this._animatedIsFocused.interpolate({
+        inputRange: [0, 1],
+        outputRange: ['#aaa', '#aaa'],
+      }),
+    };
+    
     return (
       <InputWrapper>
-        {this.renderError()}
+        {!noErrorValidation && this.renderError()}
         <View style={{position: 'relative'}}>
+          <Animated.Text style={labelStyle}>
+            {label}
+          </Animated.Text>
           <StyledInput
             {...inputProps}
             onChangeText={input.onChange}
-            onBlur={input.onBlur}
-            onFocus={input.onFocus}
+            onBlur={this.onBlur}
+            onFocus={this.onFocus}
             value={input.value}
             borderColor={borderColor}
+            blurOnSubmit
           />
-          {this.renderIcon()}
+          {!noErrorValidation && this.renderIcon()}
         </View>
       </InputWrapper>
     );

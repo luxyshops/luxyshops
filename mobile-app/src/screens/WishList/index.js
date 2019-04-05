@@ -10,7 +10,8 @@ import styled from 'styled-components';
 import {Navigation} from "react-native-navigation";
 import firebase from "react-native-firebase";
 import {responsiveHeight as rh, responsiveWidth as rw, responsiveFontSize as rf} from "react-native-responsive-dimensions";
-import Modal from "react-native-modal";
+
+import Modal from '../../components/Modal';
 
 const FindInStoreButtonWrapper = styled.View`
   flex: 1;
@@ -212,42 +213,18 @@ class WishList extends Component {
     return this.setState({deleteModalVisible: false})
   }
   
-  renderDeleteModal = () => {
-    return (
-      <View>
-        <Modal
-          backdropColor="#27737E"
-          backdropOpacity={0.9}
-          useNativeDriver
-          onBackdropPress={() => this.setState({deleteModalVisible: false})}
-          isVisible={this.state.deleteModalVisible}
-        >
-          <View style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-            <View style={{backgroundColor: 'white', padding: rh(4), borderRadius: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
-              <Text style={{fontSize: rf(3), fontWeight: 'bold', textAlign: 'center', marginBottom: rh(2)}}>Are you sure?</Text>
-              <Text
-                style={{
-                  fontSize: rf(2), fontWeight: '400',
-                  textAlign: 'center', marginBottom: rh(2)
-                }}
-              >
-                Are you sure you want to remove this item from your list?
-              </Text>
-              <View style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%'}}>
-                <TouchableOpacity activeOpacity={0.8} onPress={this.closeModal} style={{backgroundColor: '#00546B', width: rw(30), borderRadius: 30}}>
-                  <Text style={{color: 'white', paddingVertical: rh(1.8),
-                    textAlign: 'center', fontSize: rf(2), fontWeight: '600'}}>No</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={this.removeItem} activeOpacity={0.8} style={{backgroundColor: '#005840', width: rw(30), borderRadius: 30}}>
-                  <Text style={{color: 'white', paddingVertical: rh(1.8), textAlign: 'center', fontSize: rf(2), fontWeight: '600'}}>Yes</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-          </View>
-        </Modal>
-      </View>
-    )
-  }
+  renderDeleteModal = () => (
+    <Modal
+      isVisible={this.state.deleteModalVisible}
+      onBackdropPress={this.closeModal}
+      onRightButtonPress={this.removeItem}
+      onLeftButtonPress={this.closeModal}
+      title='Are you sure?'
+      subtitle='Are you sure you want to remove this item from your list?'
+      leftButtonText='No'
+      rightButtonText='Yes'
+    />
+  );
   
   render () {
     const {userName} = this.props

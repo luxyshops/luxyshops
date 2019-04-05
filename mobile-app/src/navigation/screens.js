@@ -10,6 +10,8 @@ import Profile from '../screens/Profile';
 import WishList from '../screens/WishList';
 import ScannerIntro from '../screens/Scanner/ScannerIntro';
 
+import CenterButton from '../components/CenterButton';
+
 export function registerScreens(store, provider) {
   Navigation.registerComponentWithRedux('Initializing', () => Initializing, provider, store);
   Navigation.registerComponentWithRedux('SignIn', () => SignIn, provider, store);
@@ -21,4 +23,5 @@ export function registerScreens(store, provider) {
   Navigation.registerComponentWithRedux('Walkthrough', () => Walkthrough, provider, store);
   Navigation.registerComponentWithRedux('Profile', () => Profile, provider, store);
   Navigation.registerComponentWithRedux('WishList', () => WishList, provider, store);
+  Navigation.registerComponent('CenterButton', () => CenterButton)
 }

@@ -7,9 +7,9 @@ import {
 } from 'react-native'
 import firebase from 'react-native-firebase';
 import {PageTitle, PageTitleWrapper, TextInputsWrapper,
-  ButtonsWrapper, StyledButton, StyledInput, Container} from '../SignIn';
+  ButtonsWrapper, StyledButton, Container} from '../SignIn';
 import {AccessToken, LoginManager} from "react-native-fbsdk";
-import { reduxForm, Field } from 'redux-form'
+import { reduxForm, Field, SubmissionError } from 'redux-form'
 import TextInput from '../../components/TextInput';
 
 import {goToSignIn, goToApp} from '../../navigation/methods';
@@ -85,11 +85,21 @@ class SignUp extends Component {
   submit = async (values) => {
     const {name, email, password} = values
     try {
-      const user = await firebase.auth().createUserWithEmailAndPassword(email, password);
+      await firebase.auth().createUserWithEmailAndPassword(email, password);
       await firebase.database().ref(`users/${firebase.auth().currentUser.uid}`).update({name});
       // here place your signup logic
     } catch (err) {
-      console.log('error signing up: ', err)
+      if (err.code === 'auth/email-already-in-use') {
+        throw new SubmissionError({
+          email: 'Email is already in use',
+          _error: 'Registration failed!'
+        })
+      } else {
+        throw new SubmissionError({
+          email: 'Oops, something went wrong',
+          _error: 'Registration failed!'
+        })
+      }
     }
   }
   
@@ -108,7 +118,7 @@ class SignUp extends Component {
             component={TextInput}
             validate={nameValidation}
             props={{
-              placeholder: 'Name',
+              label: 'Name',
               autoCapitalize: 'words',
               placeholderTextColor: '#C5CCD6'
             }}
@@ -118,7 +128,7 @@ class SignUp extends Component {
             component={TextInput}
             validate={emailValidation}
             props={{
-              placeholder: 'Email',
+              label: 'Email',
               autoCapitalize: 'none',
               placeholderTextColor: '#C5CCD6'
             }}
@@ -128,7 +138,7 @@ class SignUp extends Component {
             component={TextInput}
             validate={passwordValidation}
             props={{
-              placeholder: 'Password',
+              label: 'Password',
               autoCapitalize: 'none',
               secureTextEntry: true,
               placeholderTextColor: '#C5CCD6'

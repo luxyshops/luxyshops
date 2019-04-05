@@ -17,6 +17,12 @@ import {
 import styled from "styled-components";
 import HeaderCard from '../components/HeaderCard';
 import {Navigation} from "react-native-navigation";
+import {
+  DirectionsButtonText,
+  DirectionsButtonTouchable,
+  DirectionsButtonWrapper
+} from "../screens/Results/components/StoreCollapsible";
+import getDirections from "react-native-google-maps-directions";
 
 const { width, height } = Dimensions.get('window');
 
@@ -54,12 +60,13 @@ const WorkingHours = styled.Text`
 class Map extends Component {
   constructor(props) {
     super(props);
-    const initialState = {markers: this.markers(), userLocation: null}
+    const initialState = {markers: this.markers(), userLocation: null, headerHidden: false}
     this.translateAnimatableButtonY = new Animated.Value(rh(20));
     this.animatableButtonOpacity = new Animated.Value(0);
     this.translateAnimatableHeaderY = new Animated.Value(0);
     this.animatableHeaderOpacity = new Animated.Value(1);
-    this.translateAnimatableCenterButtonY = new Animated.Value(rh(40));
+    this.translateAnimatableCenterButtonY = new Animated.Value(rh(43));
+    this.animatableCenterButtonOpacity = new Animated.Value(1);
     this.state = initialState;
   }
   componentDidMount () {
@@ -76,9 +83,16 @@ class Map extends Component {
   }
   
   hideHeader = () => {
+    console.log('hiding')
+    const {headerHidden} = this.state;
+  
+    if (headerHidden) {
+      return null;
+    }
+    this.props.onHeaderHide();
     return Animated.parallel([
       Animated.spring(this.translateAnimatableHeaderY, {
-        toValue: -rh(40),
+        toValue: -rh(50),
         duration: 300,
         useNativeDriver: true,
       }),
@@ -102,10 +116,23 @@ class Map extends Component {
         duration: 1,
         useNativeDriver: true,
       }),
-    ]).start(() => this.setState({ topButtonAnimationIsDone: true }));
+      Animated.timing(this.animatableCenterButtonOpacity, {
+        toValue: 0,
+        duration: 300,
+        useNativeDriver: true,
+      }),
+    ]).start(() => {
+      this.setState({ headerHidden: true })
+    });
   }
   
   showHeader = () => {
+    console.log('showing')
+    const {headerHidden} = this.state;
+    if (!headerHidden) {
+      return null;
+    }
+    this.props.onHeaderShow();
     return Animated.parallel([
       Animated.spring(this.translateAnimatableHeaderY, {
         toValue: 0,
@@ -128,12 +155,17 @@ class Map extends Component {
         useNativeDriver: true,
       }),
       Animated.spring(this.translateAnimatableCenterButtonY, {
-        toValue: rh(40),
-        duration: 1,
+        toValue: rh(43),
+        duration: 300,
         useNativeDriver: true,
-      })
+      }),
+      Animated.timing(this.animatableCenterButtonOpacity, {
+        toValue: 1,
+        duration: 100,
+        useNativeDriver: true,
+      }),
     ]).start(() => {
-      this.setState({ markers: this.markers() })
+      this.setState({markers: this.markers(), headerHidden: false})
     });
   }
   
@@ -155,8 +187,9 @@ class Map extends Component {
     const selectedMarker = this.state.markers.find(({selected}) => selected);
     const sizes = _.get(selectedMarker, 'availableSizes', null);
     const colors = _.get(selectedMarker, 'availableColors', null);
-    const variations = _.get(selectedMarker, 'availableVariations', null);
+    const variations = _.get(selectedMarker, 'availableVarieties', null);
     const workingHours = _.get(selectedMarker, 'workingHours', null);
+    console.log('selectedMarker', selectedMarker)
     return (
       <Animated.View
         style={{
@@ -204,7 +237,7 @@ class Map extends Component {
             <AvailableColors colors={colors} />
           )}
           {variations && (
-            <Text>
+            <Text style={{marginBottom: rh(2)}}>
               Available variations: {variations.map((variation, index) => {
               if (index === variations.length - 1) {
                 return <Text key={index}>{variation}</Text>
@@ -214,30 +247,62 @@ class Map extends Component {
             </Text>
           )}
           {workingHours && (
-            <Text>Opening hours: {workingHours.map((time, index) => (
+            <Text style={{width: '70%', lineHeight: rh(2.5)}}>Opening hours: {workingHours.map((time, index) => (
               <WorkingHours key={index}>{time}</WorkingHours>
             ))}</Text>
           )}
+          <View style={{position: 'absolute', right: 20, bottom: 15}}>
+            {this.renderDirectionsButton(selectedMarker)}
+          </View>
         </ElevatedView>
       </Animated.View>
     )
   }
   
+  handleGetDirections = ({location: {latitude, longitude}, name, address}) => {
+    
+    const data = {
+      source: {
+        latitude: this.props.userLocation.latitude,
+        longitude: this.props.userLocation.longitude
+      },
+      destination: {
+        latitude,
+        longitude,
+      },
+    }
+    
+    getDirections(data)
+  }
+  
+  renderDirectionsButton = (params) => {
+    console.log('params', params)
+    return (
+      <DirectionsButtonWrapper>
+        <DirectionsButtonTouchable
+          onPress={() => this.handleGetDirections(params)}
+        >
+          <Image
+            source={require('../../assets/search.png')}
+            style={{width: 10, height: 10}}
+          />
+          <DirectionsButtonText>DIRECTIONS</DirectionsButtonText>
+        </DirectionsButtonTouchable>
+      </DirectionsButtonWrapper>
+    )
+  }
+  
   markers = (onlyLocation = false) => {
-    console.log('this,props', this.props)
     return this.props.productData.stores_in_stock.map((store) => {
       const {location, short_name, placeId, name,
         address, sizes_available, colors_available, variations_available, working_hours} = store;
       if (onlyLocation) {
-        console.log('here')
         return {
           latitude: location.lat,
           longitude: location.lng,
         }
       }
-      console.log('sizes_available', sizes_available, 'sizes_to_display', this.props.sizes_to_display)
       if (!sizes_available || sizes_available.some(r=> this.props.sizes_to_display.indexOf(r) >= 0)) {
-        console.log('here', store)
         return {
           fullName: name,
           address,
@@ -261,10 +326,20 @@ class Map extends Component {
   onMarkerPress = (marker) => {
     const newMarkers = this.state.markers.map(item => {
       if (item.placeId === marker.placeId) {
+        console.log('selected item', item.name)
+        const region = {
+          ...item.location,
+          latitudeDelta: LATITUDE_DELTA,
+          longitudeDelta: LONGITUDE_DELTA
+        };
+  
+        this.map.animateToRegion(region)
         const newMarkerValue = !marker.selected;
         if(newMarkerValue) {
+          console.log('marker is selected')
           this.hideHeader()
         } else {
+          console.log('marker is unselected')
           this.showHeader()
         }
         return {...item, selected: newMarkerValue}
@@ -291,34 +366,41 @@ class Map extends Component {
     )
   }
   
+  renderCenterButton = () => {
+    return (
+      <Animated.View
+        style={{
+          position: 'absolute',
+          right: rw(3),
+          zIndex: 1,
+          transform: [{
+            translateY: this.translateAnimatableCenterButtonY
+          }],
+          opacity: this.animatableCenterButtonOpacity,
+        }}
+      >
+        <TouchableOpacity
+          activeOpacity={0.9}
+          style={{
+            height: 50,
+            width: 50,
+          }}
+          onPress={this.handleCenter}
+        >
+          <Image
+            style={{flex: 1, height: undefined, width: undefined}}
+            resizeMode="contain"
+            source={CenterMap}
+          />
+        </TouchableOpacity>
+      </Animated.View>
+    );
+  }
+  
   render () {
     return (
       <View style={{height: '100%'}}>
-        <Animated.View
-          style={{
-            position: 'absolute',
-            right: 0,
-            zIndex: 1,
-            transform: [{
-              translateY: this.translateAnimatableCenterButtonY
-            }]
-          }}
-        >
-          <TouchableOpacity
-            activeOpacity={0.9}
-            style={{
-              height: 60,
-              width: 60,
-            }}
-            onPress={this.handleCenter}
-          >
-            <Image
-              style={{flex: 1, height: undefined, width: undefined}}
-              resizeMode="contain"
-              source={CenterMap}
-            />
-          </TouchableOpacity>
-        </Animated.View>
+        {this.renderCenterButton()}
         <Animated.View
           style={{
             position: 'absolute',
@@ -332,10 +414,15 @@ class Map extends Component {
             }],
           }}
         >
-          <ElevatedView style={{paddingHorizontal: 20,
-            paddingTop: 80,
-            paddingBottom: 50,
-            backgroundColor: 'white'}} elevation={5}>
+          <ElevatedView
+            style={{
+              paddingHorizontal: 20,
+              paddingTop: 80,
+              // paddingBottom: 50,
+              backgroundColor: 'white',
+            }}
+            elevation={5}
+          >
             {this.renderHeaderCard()}
             <View style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
               <Text style={{marginVertical: 20, fontSize: 17}}>Available at these locations: </Text>
@@ -345,26 +432,6 @@ class Map extends Component {
                     this.props.goToFilters({
                       onApply: () => this.setState({markers: this.markers()})
                     })
-                    // console.log('this.props', this.props)
-                    // return Navigation.push(this.props.componentId, {
-                    //   component: {
-                    //     name: 'Filters',
-                    //     passProps: {
-                    //       sizes_reference: this.props.sizes_reference,
-                    //       sizes_to_display: this.props.sizes_to_display,
-                    //       allUnChecked: this.props.allFiltersUnChecked,
-                    //       onApply: this.props.applyNewFilters,
-                    //       onReset: () => this.props.onReset
-                    //     },
-                    //     options: {
-                    //       bottomTabs: { visible: false, drawBehind: true, animate: true }
-                    //     }
-                    //   },
-                    // }).then(() => {
-                    //   if (this.props.allFiltersUnChecked) {
-                    //     return this.setState({allFiltersUnChecked: false})
-                    //   }
-                    // })
                   }}
                   style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}
                 >
@@ -388,6 +455,7 @@ class Map extends Component {
               height: '100%',
               position: 'relative',
             }}
+            fitToElements
             showsUserLocation
             initialRegion={{
               latitude: LATITUDE,

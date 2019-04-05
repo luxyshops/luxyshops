@@ -4,9 +4,12 @@ import {responsiveWidth as rw, responsiveHeight as rh, responsiveFontSize as rf}
 import firebase from 'react-native-firebase';
 import Switch from '../../components/Switch';
 import {Input} from 'react-native-elements';
+import TextInput from '../../components/TextInput';
 import {compose} from "redux";
 import {firebaseConnect, getVal} from 'react-redux-firebase';
 import {connect} from "react-redux";
+
+import Modal from '../../components/Modal';
 
 
 class Profile extends Component {
@@ -16,9 +19,10 @@ class Profile extends Component {
     };
   }
   
-  state = {toggleValue: true};
+  state = {toggleValue: true, logoutModalVisible: false};
   
   logout = () => {
+    this.closeModal();
     return firebase.auth().signOut();
   }
   
@@ -28,7 +32,7 @@ class Profile extends Component {
   
   renderSwitchBlock = () => {
     return (
-      <View style={{display: 'flex', flexDirection: 'row', paddingHorizontal: 20, marginVertical: rh(2)}}>
+      <View style={{display: 'flex', flexDirection: 'row', marginHorizontal: 20, marginVertical: rh(2), borderBottomWidth: 1, paddingBottom: 4, borderColor: '#C5CCD6'}}>
         <Text style={{flex: 1, fontSize: 17}}>Receive promotions</Text>
         <View style={{flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'flex-end'}}>
           <Switch
@@ -64,6 +68,23 @@ class Profile extends Component {
     )
   }
   
+  closeModal = () => this.setState({logoutModalVisible: false});
+  
+  showModal = () => this.setState({logoutModalVisible: true});
+  
+  renderLogoutModal = () => (
+    <Modal
+      isVisible={this.state.logoutModalVisible}
+      onBackdropPress={this.closeModal}
+      onRightButtonPress={this.logout}
+      onLeftButtonPress={this.closeModal}
+      title='Log Out'
+      subtitle='Are you sure you want to log out'
+      leftButtonText='No'
+      rightButtonText='Yes'
+    />
+  );
+  
   render() {
     return (
       <View style={{height: '100%'}}>
@@ -76,32 +97,43 @@ class Profile extends Component {
             <Text style={{fontWeight: 'bold', fontSize: 25}}>Information</Text>
           </View>
           <View style={{display: 'flex', paddingHorizontal: 10}}>
-            <Input
+            <TextInput
+              noErrorValidation
+              editable={false}
               label='Name'
-              value={this.props.userName}
-              enabled={false}
+              input={{
+                value: this.props.userName,
+              }}
             />
-            <Input
+            <TextInput
+              noErrorValidation
+              editable={false}
               label='Email'
-              value={this.props.user.email}
-              enabled={false}
+              input={{
+                label: 'Email',
+                value: this.props.user.email,
+              }}
             />
-            <Input
-              label='Password'
-              value='Password123'
+            <TextInput
+              noErrorValidation
+              editable={false}
               secureTextEntry
-              enabled={false}
+              label='Password'
+              input={{
+                value: 'Password123',
+              }}
             />
           </View>
           {this.renderSwitchBlock()}
         </View>
         <View style={{display: 'flex', flexDirection: 'row', paddingLeft: 20}}>
           <TouchableOpacity
-            onPress={this.logout}
+            onPress={this.showModal}
             style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
             <Text style={{color: '#175641', fontSize: rf(2), marginRight: rw(3)}}>Logout</Text>
           </TouchableOpacity>
         </View>
+        {this.renderLogoutModal()}
       </View>
     );
   }

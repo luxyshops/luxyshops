@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { TouchableOpacity, Text, View, Image } from 'react-native';
 import {goToResults} from '../../navigation/methods';
 import firebase from 'react-native-firebase';
-import {Navigation} from 'react-native-navigation'
-import _ from 'lodash'
+import {Navigation} from 'react-native-navigation';
+import _ from 'lodash';
 import { RNCamera } from 'react-native-camera';
 
 class Scanner extends Component {
@@ -64,23 +64,23 @@ class Scanner extends Component {
   // }
   
 
-  componentDidMount () {
-    // christmas toy = [8308182105000210, 8378051729000210]
-    // bowl 80127206000399
-    // t-shirt 12186973001499
-    const barcode = '12186973001499';
-    return this.queryProductFamilies(barcode).then((productData) => {
-      return Navigation.push(this.props.componentId, {
-        component: {
-          name: 'Results',
-          passProps: {barcode, productData},
-          options: {
-            bottomTabs: { visible: false, drawBehind: true, animate: true }
-          }
-        },
-      })
-    })
-  }
+  // componentDidMount () {
+  //   // christmas toy = [8308182105000210, 8378051729000210]
+  //   // bowl 80127206000399
+  //   // t-shirt 12186973001499
+  //   const barcode = '80127206000399';
+  //   return this.queryProductFamilies(barcode).then((productData) => {
+  //     return Navigation.push(this.props.componentId, {
+  //       component: {
+  //         name: 'Results',
+  //         passProps: {barcode, productData},
+  //         options: {
+  //           bottomTabs: { visible: false, drawBehind: true, animate: true }
+  //         }
+  //       },
+  //     })
+  //   })
+  // }
   
   
   async queryProductFamilies (barcode) {
@@ -161,9 +161,10 @@ class Scanner extends Component {
               fontSize: 15,
               top: 80,
               position: 'absolute',
-              color: 'white'
+              color: 'white',
+              textAlign: 'center'
             }}
-          >Scan the barcode or data matrix on the price tag to find out more about the item.</Text>
+          >Look for item barcode on the price tag for inventory details.</Text>
           <Text
             style={{
               paddingHorizontal: 40,

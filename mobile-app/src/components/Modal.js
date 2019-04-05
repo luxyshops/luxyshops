@@ -5,48 +5,127 @@ import {
   responsiveFontSize as rf,
   responsiveHeight as rh,
   responsiveWidth as rw
-} from "react-native-responsive-dimensions";
+} from 'react-native-responsive-dimensions';
+import styled from 'styled-components';
 import RNModal from 'react-native-modal';
 
+const ModalOuterWrapper = styled.View`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+`;
+
+const ModalInnerWrapper = styled.View`
+  background-color: white;
+  padding: ${rh(4)}px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const ModalTitle = styled.Text`
+  font-size: ${rf(3)};
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: ${rh(2)};
+`;
+
+const ModalSubTitle = styled.Text`
+  font-size: ${rf(2)};
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: ${rh(2)};
+`;
+
+const ModalButtonsWrapper = styled.View`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+`;
+
+const ModalButton = styled(TouchableOpacity)`
+  background-color: ${({blue}) => blue ? '#00546B' : '#005840'};
+  width: ${rw(30)}px;
+  border-radius: 30px;
+`;
+
+const ModalButtonText = styled.Text`
+  color: white;
+  margin-top: ${rh(1.8)}px;
+  margin-bottom: ${rh(1.8)}px;
+  text-align: center;
+  font-size: ${rf(2)}px;
+  font-weight: 600;
+`;
+
 class Modal extends Component {
-  static defaultProps = {};
+  static defaultProps = {
+    onBackdropPress: () => null,
+    title: '',
+    subtitle: '',
+    leftButtonText: '',
+    rightButtonText: '',
+  };
   
-  static propTypes = {};
+  static propTypes = {
+    isVisible: PropTypes.bool.isRequired,
+    onBackdropPress: PropTypes.func,
+    onRightButtonPress: PropTypes.func.isRequired,
+    onLeftButtonPress: PropTypes.func.isRequired,
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    leftButtonText: PropTypes.string,
+    rightButtonText: PropTypes.string,
+  };
   
   state = {};
   
   render () {
+    const {
+      isVisible,
+      onBackdropPress,
+      onRightButtonPress,
+      onLeftButtonPress,
+      title,
+      subtitle,
+      leftButtonText,
+      rightButtonText,
+    } = this.props;
     return (
       <View>
         <RNModal
           backdropColor="#27737E"
           backdropOpacity={0.9}
           useNativeDriver
-          onBackdropPress={() => this.setState({deleteModalVisible: false})}
-          isVisible={this.state.deleteModalVisible}
+          onBackdropPress={onBackdropPress}
+          isVisible={isVisible}
         >
-          <View style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-            <View style={{backgroundColor: 'white', padding: rh(4), borderRadius: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
-              <Text style={{fontSize: rf(3), fontWeight: 'bold', textAlign: 'center', marginBottom: rh(2)}}>Are you sure?</Text>
-              <Text
-                style={{
-                  fontSize: rf(2), fontWeight: '400',
-                  textAlign: 'center', marginBottom: rh(2)
-                }}
-              >
-                Are you sure you want to remove this item from your list?
-              </Text>
-              <View style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%'}}>
-                <TouchableOpacity activeOpacity={0.8} onPress={this.closeModal} style={{backgroundColor: '#00546B', width: rw(30), borderRadius: 30}}>
-                  <Text style={{color: 'white', paddingVertical: rh(1.8),
-                    textAlign: 'center', fontSize: rf(2), fontWeight: '600'}}>No</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={this.removeItem} activeOpacity={0.8} style={{backgroundColor: '#005840', width: rw(30), borderRadius: 30}}>
-                  <Text style={{color: 'white', paddingVertical: rh(1.8), textAlign: 'center', fontSize: rf(2), fontWeight: '600'}}>Yes</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-          </View>
+          <ModalOuterWrapper>
+            <ModalInnerWrapper>
+              <ModalTitle>{title}</ModalTitle>
+              <ModalSubTitle>
+                {subtitle}
+              </ModalSubTitle>
+              <ModalButtonsWrapper>
+                <ModalButton
+                  activeOpacity={0.8}
+                  onPress={onLeftButtonPress}
+                  blue
+                >
+                  <ModalButtonText>{leftButtonText}</ModalButtonText>
+                </ModalButton>
+                <ModalButton
+                  onPress={onRightButtonPress}
+                  activeOpacity={0.8}
+                >
+                  <ModalButtonText>{rightButtonText}</ModalButtonText>
+                </ModalButton>
+              </ModalButtonsWrapper>
+            </ModalInnerWrapper>
+          </ModalOuterWrapper>
         </RNModal>
       </View>
     );

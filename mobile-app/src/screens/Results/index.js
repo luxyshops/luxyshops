@@ -14,14 +14,30 @@ const getCurrentLocation = () => {
   });
 };
 
+const hiddenHeaderNavOptions = {
+  topBar: {
+    rightButtons: [
+      {
+        id: 'centerButton',
+        component: {
+          name: 'CenterButton'
+        }
+      }
+    ],
+    title: {
+      text: 'Store Details',
+    }
+  }
+}
+
 const listNavOptions = {
   topBar: {
     rightButtons: [
       {
         id: 'listButton',
         text: 'List',
-        color: '#005840',
-      }
+        color: '#005840'
+      },
     ],
     title: {
       text: 'Map',
@@ -29,9 +45,10 @@ const listNavOptions = {
     background: {
       color: 'transparent',
     },
+    animate: true,
     drawBehind: true,
     transparent: true,
-    translucent: false,
+    translucent: true,
     hideOnScroll: false,
   },
 };
@@ -51,6 +68,7 @@ const mapNavOptions = {
     background: {
       color: 'transparent',
     },
+    animate: true,
     drawBehind: true,
     transparent: true,
     translucent: true,
@@ -85,6 +103,7 @@ class Results extends React.Component {
         // animate: true,
         // visible: true,
         // drawBehind: true,
+        animate: true,
         noBorder: true,
         background: {
           color: 'transparent',
@@ -111,6 +130,7 @@ class Results extends React.Component {
   componentDidMount () {
     getCurrentLocation().then(location => {
       if (location) {
+        console.log('location', location)
         return this.setState({userLocation: {
             latitude: location.coords.latitude,
             longitude: location.coords.longitude,
@@ -207,6 +227,7 @@ class Results extends React.Component {
         onItemAdd={this.onItemAdd}
         onItemRemove={this.onItemRemove}
         savedItems={this.props.savedItems}
+        userLocation={this.state.userLocation}
       />
     );
   };
@@ -245,6 +266,9 @@ class Results extends React.Component {
     }
     return (
       <Map
+        userLocation={this.state.userLocation}
+        onHeaderHide={() => Navigation.mergeOptions(this.props.componentId, hiddenHeaderNavOptions)}
+        onHeaderShow={() => Navigation.mergeOptions(this.props.componentId, listNavOptions)}
         savedItems={this.props.savedItems}
         goToFilters={this.goToFilters}
         onItemAdd={this.onItemAdd}

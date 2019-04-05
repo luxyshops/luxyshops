@@ -30,10 +30,9 @@ class ScannerIntro extends Component {
     return (
       <View style={{height: '100%', paddingTop: 60}}>
         <View style={{marginBottom: 30, paddingHorizontal: 20}}>
-          <Text style={{fontWeight: 'bold', fontSize: 23, marginBottom: 10}}>Let's scan</Text>
-          <Text style={{fontSize: 16,marginBottom: 5, color: '#5B5B5B'}}>Press Scan button to simply scan the</Text>
-          <Text style={{fontSize: 16, marginBottom: 5, color: '#5B5B5B'}}>barcode of the item you like to see</Text>
-          <Text style={{fontSize: 16, marginBottom: 5, color: '#5B5B5B'}}>what's available around.</Text>
+          <Text style={{fontWeight: 'bold', fontSize: 23, marginBottom: 10}}>Let's Shop</Text>
+          <Text style={{fontSize: 16,marginBottom: 5, color: '#5B5B5B'}}>Press the start shopping button to scan the</Text>
+          <Text style={{fontSize: 16, marginBottom: 5, color: '#5B5B5B'}}>barcode of the item you wish to locate.</Text>
         </View>
         <View style={{width: '100%', display: 'flex', alignItems: 'center'}}>
           <Image
@@ -44,7 +43,7 @@ class ScannerIntro extends Component {
         <View style={{paddingHorizontal: 20, marginTop: rh(5)}}>
           <StyledButton onPress={this.goToScanner}>
             <Text style={{color: 'white', paddingVertical: 15, textAlign: 'center'}}>
-              Start Scanning
+              Start Shopping
             </Text>
           </StyledButton>
         </View>

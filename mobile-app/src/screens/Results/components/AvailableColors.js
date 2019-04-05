@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {Text, View} from 'react-native';
+import {Text} from 'react-native';
 import styled from 'styled-components';
+import {responsiveHeight as rh} from 'react-native-responsive-dimensions';
 
 export const pickRightBorderColor = (bgColor, lightColor, darkColor) => {
   const color = (bgColor.charAt(0) === '#') ? bgColor.substring(1, 7) : bgColor;
@@ -23,7 +24,7 @@ const StyledWrapper = styled.View`
   flex-direction: row;
   align-items: center;
   text-align: center;
-  margin-vertical: 10px;
+  margin-vertical: ${rh(2)}px;
 `
 
 const ColorCircle = styled.View`

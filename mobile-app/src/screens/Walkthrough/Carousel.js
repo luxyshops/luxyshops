@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Keyboard, View, Text, TouchableOpacity} from 'react-native';
+import {Keyboard, View, Text, TouchableOpacity, AsyncStorage} from 'react-native';
 import PropTypes from 'prop-types';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 import {responsiveHeight as rh, responsiveWidth as rw} from 'react-native-responsive-dimensions';
@@ -53,8 +53,8 @@ class CarouselSlide extends Component {
       return (
         <View style={{marginTop: 20}}>
           <Text style={{textAlign: 'center', marginBottom: 5, fontSize: 15, color: '#5B5B5B'}}>Can’t find the right size in the store?</Text>
-          <Text style={{textAlign: 'center', marginBottom: 5, fontSize: 15, color: '#5B5B5B'}}>Looking for a similar item?</Text>
-          <Text style={{textAlign: 'center', fontSize: 15, color: '#5B5B5B', fontWeight: 'bold'}}>Luxy to the rescue!</Text>
+          <Text style={{textAlign: 'center', marginBottom: 5, fontSize: 15, color: '#5B5B5B'}}>Luxy to the rescue! Just scan the barcode</Text>
+          <Text style={{textAlign: 'center', fontSize: 15, color: '#5B5B5B'}}>to see what other stores have in stock</Text>
         </View>
       );
     }
@@ -67,16 +67,21 @@ class CarouselSlide extends Component {
     );
   }
   
+  onGetStartedPress = () => {
+    AsyncStorage.setItem('skip_walkthrough', 'true');
+    return this.toSignUp();
+  }
+  
   renderButton = () => {
     const {activeSlide, onButtonPress} = this.props;
     return (
       <View style={{paddingHorizontal: rw(10), marginVertical: 15}}>
         <StyledButton
-          onPress={activeSlide === 0 ? () => onButtonPress() : () => this.toSignUp()}
+          onPress={this.onGetStartedPress}
           activeOpacity={0.8}
         >
           <Text style={{color: 'white', paddingVertical: rh(2), textAlign: 'center', fontSize: 15, fontWeight: 'bold'}}>
-            {activeSlide === 0 ? 'Next' : 'Sign me up'}
+            {activeSlide === 0 ? 'Get started' : 'Sign me up'}
           </Text>
         </StyledButton>
       </View>
@@ -112,14 +117,15 @@ class CarouselSlide extends Component {
           ref={carRef => getRef(carRef)}
           {...props}
         />
-        {this.pagination}
-        {this.renderText()}
-        {this.renderButton()}
-        <View style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
-          <Text style={{textAlign: 'center', marginBottom: 5, fontSize: 15, color: '#5B5B5B', marginRight: 5}}>Already have an account?</Text>
-          <TouchableOpacity onPress={this.toSignIn}>
-            <Text style={{textAlign: 'center', marginBottom: 5, fontSize: 15, color: '#5B5B5B', fontWeight: 'bold'}}>Log In</Text>
-          </TouchableOpacity>
+        <View style={{marginTop: rh(7)}}>
+          {this.renderText()}
+          {this.renderButton()}
+          <View style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
+            <Text style={{textAlign: 'center', marginBottom: 5, fontSize: 15, color: '#5B5B5B', marginRight: 5}}>Already have an account?</Text>
+            <TouchableOpacity onPress={this.toSignIn}>
+              <Text style={{textAlign: 'center', marginBottom: 5, fontSize: 15, color: '#5B5B5B', fontWeight: 'bold'}}>Log In</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     );

@@ -8,8 +8,10 @@ import firebase from 'react-native-firebase';
 import styled from 'styled-components';
 import {responsiveHeight as rh, responsiveWidth as rw, responsiveFontSize as rf} from 'react-native-responsive-dimensions';
 import {LoginButton, AccessToken, LoginManager} from 'react-native-fbsdk';
-import { reduxForm, Field } from 'redux-form'
+import { reduxForm, Field, SubmissionError } from 'redux-form'
+
 import TextInput from '../../components/TextInput';
+import FloatingLabelInput from '../../components/FloatingLabelInput';
 import {emailValidation, passwordValidation} from '../SignUp';
 
 import { goToSignUp, goToApp, goToWalkthrough } from '../../navigation/methods'
@@ -78,7 +80,7 @@ class SignIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '', password: ''
+      email: '', password: '', val: ''
     }
   }
   
@@ -96,10 +98,25 @@ class SignIn extends Component {
     const { email, password } = values
     try {
       // login with provider
-      const user = await firebase.auth().signInWithEmailAndPassword(email, password)
+      await firebase.auth().signInWithEmailAndPassword(email, password)
       return goToApp();
     } catch (err) {
-      console.log('error:', err)
+      if (err.code === 'auth/user-not-found') {
+        throw new SubmissionError({
+          email: 'User does not exist',
+          _error: 'Login failed!'
+        })
+      } else if (err.code === 'auth/wrong-password') {
+        throw new SubmissionError({
+          password: 'Wrong password',
+          _error: 'Login failed!'
+        })
+      } else {
+        throw new SubmissionError({
+          email: 'Oops, something went wrong',
+          _error: 'Login failed!'
+        })
+      }
     }
   }
   
@@ -145,7 +162,7 @@ class SignIn extends Component {
             component={TextInput}
             validate={emailValidation}
             props={{
-              placeholder: 'Email',
+              label: 'Email',
               autoCapitalize: 'none',
               placeholderTextColor: '#C5CCD6'
             }}
@@ -155,7 +172,7 @@ class SignIn extends Component {
             component={TextInput}
             validate={passwordValidation}
             props={{
-              placeholder: 'Password',
+              label: 'Password',
               autoCapitalize: 'none',
               secureTextEntry: true,
               placeholderTextColor: '#C5CCD6'

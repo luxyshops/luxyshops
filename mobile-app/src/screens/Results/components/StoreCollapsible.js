@@ -85,12 +85,12 @@ const WorkingHours = styled.Text`
   margin-bottom: 10px;
 `
 
-const DirectionsButtonWrapper = styled.View`
+export const DirectionsButtonWrapper = styled.View`
   flex: 1;
   justify-content: flex-end;
   align-items: center;
 `
-const DirectionsButtonTouchable = styled(TouchableOpacity)`
+export const DirectionsButtonTouchable = styled(TouchableOpacity)`
   background-color: #175641;
   border-radius: 20px;
   width: 105px;
@@ -101,7 +101,7 @@ const DirectionsButtonTouchable = styled(TouchableOpacity)`
   align-items: center;
 `
 
-const DirectionsButtonText = styled(Text)`
+export const DirectionsButtonText = styled(Text)`
   padding-vertical: 3px;
   color: white;
   font-size: 10px;
@@ -121,17 +121,7 @@ class StoreCollapsible extends Component {
       destination: {
         latitude: lat,
         longitude: lng
-      },
-      params: [
-        {
-          key: "travelmode",
-          value: "walking"        // may be "walking", "bicycling" or "transit" as well
-        },
-        {
-          key: "dir_action",
-          value: "navigate"       // this instantly initializes navigation using the given travel mode
-        }
-      ]
+      }
     }
     
     getDirections(data)
