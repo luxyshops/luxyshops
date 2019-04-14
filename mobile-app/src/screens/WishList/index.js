@@ -231,7 +231,7 @@ class WishList extends Component {
     
     return (
       <ScrollView
-        style={{height: '100%', paddingHorizontal: 20, paddingTop: 60}}
+        style={{height: '100%', paddingHorizontal: 20, paddingTop: 60, borderWidth: 1}}
       >
         <View style={{marginBottom: 30}}>
           <Text style={{fontWeight: 'bold', fontSize: 23, marginBottom: 10}}>Hello, {userName}</Text>
@@ -239,7 +239,7 @@ class WishList extends Component {
           <Text style={{fontSize: 16, marginBottom: 5, color: '#5B5B5B'}}>return to them in the future. Just scan </Text>
           <Text style={{fontSize: 16 ,marginBottom: 5, color: '#5B5B5B'}}>the barcode and save ones you like.</Text>
         </View>
-        {this.renderCards()}
+        <View style={{marginBottom: rh(10)}}>{this.renderCards()}</View>
         {this.renderDeleteModal()}
       </ScrollView>
     );

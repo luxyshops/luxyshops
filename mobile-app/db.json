@@ -2,7 +2,7 @@
   "-LYvV_DQb5CcjMbc9rpF" : [ {
     "bar_codes" : [ "80127206000399" ],
     "name" : "Bowl",
-    "price" : "$39.99",
+    "price" : "$3.99",
     "stores_in_stock" : [ {
       "address" : "Marshalls, 382 Yonge St, Toronto, ON M5B 1S8",
       "colors_available" : [ "white", "#D7D8DA", "#36465A", "#BB8969" ],

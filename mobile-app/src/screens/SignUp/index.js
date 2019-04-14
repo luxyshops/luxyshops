@@ -11,6 +11,7 @@ import {PageTitle, PageTitleWrapper, TextInputsWrapper,
 import {AccessToken, LoginManager} from "react-native-fbsdk";
 import { reduxForm, Field, SubmissionError } from 'redux-form'
 import TextInput from '../../components/TextInput';
+import {responsiveHeight as rh} from "react-native-responsive-dimensions";
 
 import {goToSignIn, goToApp} from '../../navigation/methods';
 
@@ -108,6 +109,10 @@ class SignUp extends Component {
     
     return (
       <Container>
+        <Image
+          style={{height: rh(10), width: rh(10), position: 'absolute', top: rh(4)}}
+          source={require(`../../../assets/logo_image.png`)}
+        />
         <PageTitleWrapper>
           <PageTitle>Create your</PageTitle>
           <PageTitle>account with email</PageTitle>

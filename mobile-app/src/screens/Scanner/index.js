@@ -63,34 +63,40 @@ class Scanner extends Component {
   //   })
   // }
   
-
+  //
   // componentDidMount () {
   //   // christmas toy = [8308182105000210, 8378051729000210]
   //   // bowl 80127206000399
   //   // t-shirt 12186973001499
   //   const barcode = '80127206000399';
   //   return this.queryProductFamilies(barcode).then((productData) => {
-  //     return Navigation.push(this.props.componentId, {
-  //       component: {
-  //         name: 'Results',
-  //         passProps: {barcode, productData},
-  //         options: {
-  //           bottomTabs: { visible: false, drawBehind: true, animate: true }
-  //         }
-  //       },
-  //     })
+  //     if (productData) {
+  //       return Navigation.push(this.props.componentId, {
+  //         component: {
+  //           name: 'Results',
+  //           passProps: {barcode, productData},
+  //           options: {
+  //             bottomTabs: { visible: false, drawBehind: true, animate: true }
+  //           }
+  //         },
+  //       })
+  //     }
   //   })
   // }
   
   
   async queryProductFamilies (barcode) {
     const ref = firebase.database().ref('productFamilies');
-    const productFamiliesSN = await ref.once('value')
-    const productFamilies = productFamiliesSN.val()
-    const res = _.keys(productFamilies).find((familyKey) => {
-      return productFamilies[familyKey].find(({bar_codes}) => bar_codes.includes(barcode))
-    })
-    return productFamilies[res].find(({bar_codes}) => bar_codes.includes(barcode))
+    try {
+      const productFamiliesSN = await ref.once('value')
+      const productFamilies = productFamiliesSN.val()
+      const res = _.keys(productFamilies).find((familyKey) => {
+        return productFamilies[familyKey].find(({bar_codes}) => bar_codes.includes(barcode))
+      })
+      return productFamilies[res].find(({bar_codes}) => bar_codes.includes(barcode))
+    } catch (e) {
+      alert('We are sorry. We can\'t locate this item')
+    }
   }
   
   

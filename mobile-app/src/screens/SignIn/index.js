@@ -152,6 +152,10 @@ class SignIn extends Component {
     const {handleSubmit} = this.props;
     return (
       <Container>
+        <Image
+          style={{height: rh(10), width: rh(10), position: 'absolute', top: rh(4)}}
+          source={require(`../../../assets/logo_image.png`)}
+        />
         <PageTitleWrapper>
           <PageTitle>Log into</PageTitle>
           <PageTitle>your account</PageTitle>

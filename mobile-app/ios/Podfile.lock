@@ -203,8 +203,8 @@ PODS:
   - GTMSessionFetcher/Core (1.2.1)
   - leveldb-library (1.20)
   - lottie-ios (2.5.3)
-  - lottie-react-native (2.5.11):
-    - lottie-ios
+  - lottie-react-native (2.6.1):
+    - lottie-ios (~> 2.5.0)
     - React
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
@@ -435,7 +435,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   lottie-ios: a50d5c0160425cd4b01b852bb9578963e6d92d31
-  lottie-react-native: 31ceb9d2d1423fa99c64d19eb93c0364256a6a3e
+  lottie-react-native: fc1fe3ee36ef1e19e56e9a4f90a3c50af6f3553e
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
   React: 9b873b38b92ed8012d7cdf3b965477095ed364c4

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Image, ScrollView, TouchableOpacity, View} from 'react-native';
+import {Image, ScrollView, TouchableOpacity, View, Text} from 'react-native';
 import _ from 'lodash';
 import {
   responsiveFontSize as rf,
@@ -78,6 +78,14 @@ class StoresList extends Component {
   
   renderStores = () => {
     const {productData, userLocation, sizesToDisplay} = this.props
+    
+    if (_.get(this.props, 'productData.sizes_reference')) {
+      const storesThatWillBeDisplayed = productData.stores_in_stock.filter((store, idx) => store.sizes_available.some(r=> sizesToDisplay.indexOf(r) >= 0));
+      if (storesThatWillBeDisplayed.length === 0) {
+        return <Text>We are sorry. There is nothing found</Text>
+      }
+    }
+    
     return (
       <View style={{marginBottom: 20}}>
         {productData.stores_in_stock.map((store, idx) => {
