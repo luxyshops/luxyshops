@@ -40,7 +40,9 @@ target 'luxyshops' do
 
   # Required by RNFirebase
   pod 'Firebase/Core', '~> 5.15.0'
-  pod 'react-native-camera', path: '../node_modules/react-native-camera'
+  pod 'react-native-camera', path: '../node_modules/react-native-camera', subspecs: [
+    'BarcodeDetectorMLKit'
+  ]
 
   # [OPTIONAL PODS] - comment out pods for firebase products you won't be using.
   pod 'Firebase/Auth', '~> 5.15.0'

@@ -30,9 +30,8 @@ const { width, height } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
 const LATITUDE = 43.6696817;
 const LONGITUDE = -79.3387563;
-const LATITUDE_DELTA = 0.1922;
+const LATITUDE_DELTA = 1.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
-const DEFAULT_PADDING = { top: 60, right: 60, bottom: 60, left: 60 };
 
 const getCurrentLocation = () => {
   return new Promise((resolve, reject) => {
@@ -83,7 +82,6 @@ class Map extends Component {
   }
   
   hideHeader = () => {
-    console.log('hiding')
     const {headerHidden} = this.state;
   
     if (headerHidden) {
@@ -127,7 +125,6 @@ class Map extends Component {
   }
   
   showHeader = () => {
-    console.log('showing')
     const {headerHidden} = this.state;
     if (!headerHidden) {
       return null;
@@ -189,7 +186,6 @@ class Map extends Component {
     const colors = _.get(selectedMarker, 'availableColors', null);
     const variations = _.get(selectedMarker, 'availableVarieties', null);
     const workingHours = _.get(selectedMarker, 'workingHours', null);
-    console.log('selectedMarker', selectedMarker)
     return (
       <Animated.View
         style={{
@@ -276,7 +272,6 @@ class Map extends Component {
   }
   
   renderDirectionsButton = (params) => {
-    console.log('params', params)
     return (
       <DirectionsButtonWrapper>
         <DirectionsButtonTouchable
@@ -326,7 +321,6 @@ class Map extends Component {
   onMarkerPress = (marker) => {
     const newMarkers = this.state.markers.map(item => {
       if (item.placeId === marker.placeId) {
-        console.log('selected item', item.name)
         const region = {
           ...item.location,
           latitudeDelta: LATITUDE_DELTA,
@@ -336,10 +330,8 @@ class Map extends Component {
         this.map.animateToRegion(region)
         const newMarkerValue = !marker.selected;
         if(newMarkerValue) {
-          console.log('marker is selected')
           this.hideHeader()
         } else {
-          console.log('marker is unselected')
           this.showHeader()
         }
         return {...item, selected: newMarkerValue}

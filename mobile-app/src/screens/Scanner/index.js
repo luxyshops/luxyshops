@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, Text, View, Image } from 'react-native';
+import { Alert, Text, View, Image } from 'react-native';
 import {goToResults} from '../../navigation/methods';
 import firebase from 'react-native-firebase';
 import {Navigation} from 'react-native-navigation';
@@ -57,8 +57,8 @@ class Scanner extends Component {
   // componentDidMount () {
   //   firebase.database().ref('productFamilies').push({
   //     0: {
-  //       name: 'Towel',
-  //       bar_codes: ['91060477000399'],
+  //       name: 'Blue T-shirt',
+  //       bar_codes: ['89923358-01'],
   //     }
   //   })
   // }
@@ -95,7 +95,15 @@ class Scanner extends Component {
       })
       return productFamilies[res].find(({bar_codes}) => bar_codes.includes(barcode))
     } catch (e) {
-      alert('We are sorry. We can\'t locate this item')
+      console.log('barcode', barcode)
+      this.setState({stopScanning: true, readingBarcode: false, barcode: null})
+      Alert.alert(
+        'Item not found',
+        'We are sorry. We can\'t locate this item',
+        [
+          {text: 'OK', onPress: () => this.setState({stopScanning: false})},
+        ],
+      );
     }
   }
   
@@ -134,12 +142,11 @@ class Scanner extends Component {
           defaultTouchToFocus
           flashMode={this.state.camera.flashMode}
           onBarCodeRead={(scanResult) => {
-            console.warn('scanResult', scanResult)
-            // const {barcode, readingBarcode, stopScanning} = this.state;
-            // if (stopScanning || readingBarcode || scanResult.data === barcode) {
-            //   return null;
-            // }
-            // this.setState({barcode: scanResult.data, readingBarcode: true}, this.onBarCodeRead);
+            const {barcode, readingBarcode, stopScanning} = this.state;
+            if (stopScanning || readingBarcode || scanResult.data === barcode) {
+               return null;
+             }
+             this.setState({barcode: scanResult.data, readingBarcode: true}, this.onBarCodeRead);
           }}
           permissionDialogTitle={'Permission to use camera'}
           permissionDialogMessage={'We need your permission to use your camera phone'}
