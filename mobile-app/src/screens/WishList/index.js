@@ -231,7 +231,7 @@ class WishList extends Component {
     
     return (
       <ScrollView
-        style={{height: '100%', paddingHorizontal: 20, paddingTop: 60, borderWidth: 1}}
+        style={{height: '100%', paddingHorizontal: 20, paddingTop: 60}}
       >
         <View style={{marginBottom: 30}}>
           <Text style={{fontWeight: 'bold', fontSize: 23, marginBottom: 10}}>Hello, {userName}</Text>

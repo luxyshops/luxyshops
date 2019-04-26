@@ -195,7 +195,6 @@ class SignIn extends Component {
           </StyledButton>
           <Text>Or</Text>
           <StyledButton
-            disabled
             blue
             onPress={() => this.loginFacebook()}
           >

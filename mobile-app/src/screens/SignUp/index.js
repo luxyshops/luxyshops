@@ -161,7 +161,6 @@ class SignUp extends Component {
           <StyledButton
             onPress={() => this.loginFacebook()}
             blue
-            disabled
           >
             <Image
               source={require(`../../../assets/facebook.png`)}

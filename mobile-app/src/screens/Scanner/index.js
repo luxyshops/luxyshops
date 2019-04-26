@@ -57,8 +57,8 @@ class Scanner extends Component {
   // componentDidMount () {
   //   firebase.database().ref('productFamilies').push({
   //     0: {
-  //       name: 'Shoes',
-  //       bar_codes: ['29016230001299'],
+  //       name: 'Towel',
+  //       bar_codes: ['91060477000399'],
   //     }
   //   })
   // }
@@ -131,22 +131,16 @@ class Scanner extends Component {
             this.camera = ref;
           }}
           barcodeFinderVisible={this.state.camera.barcodeFinderVisible}
-          barcodeFinderWidth={280}
-          barcodeFinderHeight={220}
-          barcodeFinderBorderColor="white"
-          barcodeFinderBorderWidth={2}
           defaultTouchToFocus
           flashMode={this.state.camera.flashMode}
-          mirrorImage={false}
           onBarCodeRead={(scanResult) => {
-            const {barcode, readingBarcode, stopScanning} = this.state;
-            if (stopScanning || readingBarcode || scanResult.data === barcode) {
-              return null;
-            }
-            this.setState({barcode: scanResult.data, readingBarcode: true}, this.onBarCodeRead);
+            console.warn('scanResult', scanResult)
+            // const {barcode, readingBarcode, stopScanning} = this.state;
+            // if (stopScanning || readingBarcode || scanResult.data === barcode) {
+            //   return null;
+            // }
+            // this.setState({barcode: scanResult.data, readingBarcode: true}, this.onBarCodeRead);
           }}
-          onFocusChanged={() => {}}
-          onZoomChanged={() => {}}
           permissionDialogTitle={'Permission to use camera'}
           permissionDialogMessage={'We need your permission to use your camera phone'}
           style={styles.preview}
