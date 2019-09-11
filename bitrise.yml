@@ -27,7 +27,7 @@ workflows:
             - distribution_type: app-store
             - configuration: ''
             - scheme: luxyshops
-            - team_id: C6TCY6GDH2
+            - team_id: 3HLK4CJYGZ
       - xcode-archive:
           inputs:
             - project_path: "$BITRISE_PROJECT_PATH"
