@@ -5416,13 +5416,13 @@ react-native-fbsdk@^0.8.0:
     pump "^1.0.2"
     xcode "^0.9.3"
 
-react-native-firebase@^5.2.0:
-  version "5.5.6"
-  resolved "https://registry.yarnpkg.com/react-native-firebase/-/react-native-firebase-5.5.6.tgz#17b34ec0d5dc39afaaf0e159fd160f6339e0f707"
-  integrity sha512-AdbpGwKEEiMFgaRar9WOPc8Li4sfxR//WOyNQzxYsQ1fpARC908j7feqy2gu73SLqk4wzIrnlfJWakOe0/Bclg==
+react-native-firebase@5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-firebase/-/react-native-firebase-5.2.0.tgz#5f5eea19bffbda583af80a9083a14d64648a7dbc"
+  integrity sha512-6IHkJCUlHB71M3kYGOcMQm7qR+OaTgen2HYvVLFjmrLhkW2IEvfipLt0sJfSDW3Mna7n+UDHeugsfViE2b8saA==
   dependencies:
     opencollective-postinstall "^2.0.0"
-    prop-types "^15.7.2"
+    prop-types "^15.6.2"
 
 react-native-google-maps-directions@^2.0.0:
   version "2.1.0"

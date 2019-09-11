@@ -1,0 +1,64 @@
+---
+format_version: '7'
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: react-native
+trigger_map:
+  - push_branch: master
+    workflow: build_release_ios
+workflows:
+  build_release_ios:
+    steps:
+      - activate-ssh-key:
+          run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+      - git-clone: {}
+      - yarn:
+          inputs:
+            - command: install
+            - args: "--frozen-lockfile"
+          title: Install dependencies
+      - cocoapods-install: {}
+      - set-xcode-build-number:
+          inputs:
+            - plist_path: ios/luxyshops/Info.plist
+            - build_short_version_string: '1.0'
+            - build_version_offset: '0'
+      - ios-auto-provision:
+          inputs:
+            - distribution_type: app-store
+            - configuration: ''
+            - scheme: luxyshops
+            - team_id: C6TCY6GDH2
+      - xcode-archive:
+          inputs:
+            - project_path: "$BITRISE_PROJECT_PATH"
+            - scheme: luxyshops
+            - export_method: "$BITRISE_EXPORT_METHOD"
+            - team_id: 3HLK4CJYGZ
+            - configuration: Release
+      - deploy-to-itunesconnect-application-loader:
+          inputs:
+            - itunescon_user: "$APPLE_ID"
+            - password: "$APPLE_ID_PASSWORD"
+            - app_password: "$APPLE_ID_APP_SPECIFIC_PASSWORD"
+      - deploy-to-bitrise-io: {}
+    after_run: []
+app:
+  envs:
+    - opts:
+        is_expand: false
+      PROJECT_LOCATION: android
+    - opts:
+        is_expand: false
+      MODULE: app
+    - opts:
+        is_expand: false
+      VARIANT: ''
+    - opts:
+        is_expand: false
+      BITRISE_PROJECT_PATH: ios/luxyshops.xcworkspace
+    - opts:
+        is_expand: false
+      BITRISE_SCHEME: luxyshops
+    - opts:
+        is_expand: false
+      BITRISE_EXPORT_METHOD: app-store
