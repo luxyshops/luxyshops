@@ -325,9 +325,6 @@ PODS:
     - React/Core
     - React/fishhook
     - React/RCTBlob
-  - RNFirebase (5.2.0):
-    - Firebase/Core
-    - React
   - RNVectorIcons (6.6.0):
     - React
   - yoga (0.58.0-rc.2.React)
@@ -368,12 +365,11 @@ DEPENDENCIES:
   - React/RCTText (from `../node_modules/react-native`)
   - React/RCTVibration (from `../node_modules/react-native`)
   - React/RCTWebSocket (from `../node_modules/react-native`)
-  - RNFirebase (from `../node_modules/react-native-firebase/ios`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - Bolts
     - boost-for-react-native
     - BoringSSL
@@ -436,8 +432,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-maps"
   react-native-splash-screen:
     :path: "../node_modules/react-native-splash-screen"
-  RNFirebase:
-    :path: "../node_modules/react-native-firebase/ios"
   RNVectorIcons:
     :path: "../node_modules/react-native-vector-icons"
   yoga:
@@ -494,10 +488,9 @@ SPEC CHECKSUMS:
   react-native-google-maps: 544d2208b09a7e2ec2c6112c8a97c4e7f921f74d
   react-native-maps: 9469741f77f270c605cafec603ce47327dc5b5f8
   react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
-  RNFirebase: 5d2c1435fa0b6cf5e03b51f2c3dd08c0cfadb256
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   yoga: 77ef683428c2437b3252e0edbc9f15198e1a1d44
 
-PODFILE CHECKSUM: 13f2855653d16fc8af7a8088c09f76c9463554cf
+PODFILE CHECKSUM: ada329e064675ac02f3a8b4185c1a245446f5742
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.7.5

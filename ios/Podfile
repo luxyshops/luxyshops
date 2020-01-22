@@ -63,8 +63,6 @@ target 'luxyshops' do
   pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
 
   pod 'lottie-react-native', :path => '../node_modules/lottie-react-native'
-  
-  pod 'RNFirebase', :path => '../node_modules/react-native-firebase/ios'
 
   pod 'react-native-fbsdk', :path => '../node_modules/react-native-fbsdk'
 
